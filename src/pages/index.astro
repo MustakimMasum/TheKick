@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroArtifact from '../components/HeroArtifact.astro';
+import AboutArtifacts from '../components/AboutArtifacts.astro';
 import PolicyIcons from '../components/PolicyIcons.astro';
 import MembershipBackground from '../components/MembershipBackground.astro';
 import EngagementBackground from '../components/EngagementBackground.astro';
@@ -34,93 +35,118 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 		</section>
 
 		<!-- What We're Building -->
-		<section id="what-we-build" class="section">
+		<section id="what-we-build" class="section about-section">
 			<div class="container">
-				<h2 class="section-title">What We're Building</h2>
-				<p class="section-intro">
-					The Kick is a civic platform for aligned leadership. Our members contribute
-					financially and strategically to:
-				</p>
-				<ul class="bullet-list">
-					<li>Elect Democratic candidates who reflect shared priorities</li>
-					<li>Shape policy direction at the local and state level</li>
-					<li>Build long-term civic infrastructure that outlasts any single campaign</li>
-					<li>
-						Create space for disaffected conservatives who are politically homeless
-						but policy-aligned
-					</li>
-				</ul>
+				<div class="about-content about-content-right">
+					<div class="about-text">
+						<h2 class="section-title">What We're Building</h2>
+						<p class="section-intro">
+							The Kick is a civic platform for aligned leadership. Our members contribute
+							financially and strategically to:
+						</p>
+						<ul class="bullet-list">
+							<li>Elect Democratic candidates who reflect shared priorities</li>
+							<li>Shape policy direction at the local and state level</li>
+							<li>Build long-term civic infrastructure that outlasts any single campaign</li>
+							<li>
+								Create space for disaffected conservatives who are politically homeless
+								but policy-aligned
+							</li>
+						</ul>
+					</div>
+					<AboutArtifacts type="building" align="right" />
+				</div>
 			</div>
 		</section>
 
 		<!-- Who It's For -->
-		<section class="section">
+		<section class="section about-section">
 			<div class="container">
-				<h2 class="section-title">Who It's For</h2>
-				<p class="section-body">
-					Our membership includes founders, executives, investors, and business leaders.
-					What they share is an understanding: that political outcomes require more than
-					values — they require structure, strategy, and sustained investment.
-				</p>
+				<div class="about-content about-content-left">
+					<AboutArtifacts type="who" align="left" />
+					<div class="about-text">
+						<h2 class="section-title">Who It's For</h2>
+						<p class="section-body">
+							Our membership includes founders, executives, investors, and business leaders.
+							What they share is an understanding: that political outcomes require more than
+							values — they require structure, strategy, and sustained investment.
+						</p>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<!-- About / Why We Exist -->
-		<section id="about" class="section">
+		<section id="about" class="section about-section">
 			<div class="container">
-				<h2 class="section-title">Why We Exist</h2>
-				<p class="section-body">
-					Political outcomes are too often shaped by theater, not strategy — and by
-					money without alignment. While business leaders have long influenced policy
-					from the sidelines, we've lacked a civic structure to move capital,
-					relationships, and ideas with intentionality.
-				</p>
-				<p class="section-body">
-					The Kick exists to change that. We're building lasting infrastructure for
-					aligned political engagement, built on capital, clarity, and long-view
-					outcomes.
-				</p>
+				<div class="about-content about-content-right">
+					<div class="about-text">
+						<h2 class="section-title">Why We Exist</h2>
+						<p class="section-body">
+							Political outcomes are too often shaped by theater, not strategy — and by
+							money without alignment. While business leaders have long influenced policy
+							from the sidelines, we've lacked a civic structure to move capital,
+							relationships, and ideas with intentionality.
+						</p>
+						<p class="section-body">
+							The Kick exists to change that. We're building lasting infrastructure for
+							aligned political engagement, built on capital, clarity, and long-view
+							outcomes.
+						</p>
+					</div>
+					<AboutArtifacts type="why" align="right" />
+				</div>
 			</div>
 		</section>
 
 		<!-- What We Believe -->
-		<section class="section">
+		<section class="section about-section">
 			<div class="container">
-				<h2 class="section-title">What We Believe</h2>
-				<ul class="belief-list">
-					<li>
-						That civic investment is serious work, and it deserves systems that match
-						that seriousness.
-					</li>
-					<li>
-						That Democratic outcomes require more than values, they require
-						infrastructure.
-					</li>
-					<li>You don't have to wear a label to do the work. But you do have to show up for it.</li>
-					<li>
-						That we don't need to agree on everything, we just need to move in the same
-						direction.
-					</li>
-					<li>That influence is not a dirty word when it's used to build.</li>
-				</ul>
+				<div class="about-content about-content-left">
+					<AboutArtifacts type="believe" align="left" />
+					<div class="about-text">
+						<h2 class="section-title">What We Believe</h2>
+						<ul class="belief-list">
+							<li>
+								That civic investment is serious work, and it deserves systems that match
+								that seriousness.
+							</li>
+							<li>
+								That Democratic outcomes require more than values, they require
+								infrastructure.
+							</li>
+							<li>You don't have to wear a label to do the work. But you do have to show up for it.</li>
+							<li>
+								That we don't need to agree on everything, we just need to move in the same
+								direction.
+							</li>
+							<li>That influence is not a dirty word when it's used to build.</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<!-- Our Origin -->
-		<section class="section">
+		<section class="section about-section">
 			<div class="container">
-				<h2 class="section-title">Our Origin</h2>
-				<p class="section-body">
-					The Kick was created by a group of civic and business leaders who saw a clear
-					gap. There was no consistent way for serious contributors to influence local
-					Democratic outcomes with focus, strategy, and accountability. Campaigns came
-					and went. Meetings happened. Money moved — but nothing durable was taking shape.
-				</p>
-				<p class="section-body">
-					So they built something new: a platform to organize capital, coordinate
-					engagement, and build the political infrastructure they knew would be needed for
-					the long term.
-				</p>
+				<div class="about-content about-content-right">
+					<div class="about-text">
+						<h2 class="section-title">Our Origin</h2>
+						<p class="section-body">
+							The Kick was created by a group of civic and business leaders who saw a clear
+							gap. There was no consistent way for serious contributors to influence local
+							Democratic outcomes with focus, strategy, and accountability. Campaigns came
+							and went. Meetings happened. Money moved — but nothing durable was taking shape.
+						</p>
+						<p class="section-body">
+							So they built something new: a platform to organize capital, coordinate
+							engagement, and build the political infrastructure they knew would be needed for
+							the long term.
+						</p>
+					</div>
+					<AboutArtifacts type="origin" align="right" />
+				</div>
 			</div>
 		</section>
 
@@ -441,6 +467,41 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 	.btn-large {
 		padding: 16px 36px;
 		font-size: 16px;
+	}
+
+	/* About Section Layout */
+	.about-section {
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.about-content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 40px;
+		align-items: center;
+	}
+
+	.about-text {
+		max-width: 600px;
+	}
+
+	/* Responsive - Tablet */
+	@media (min-width: 768px) {
+		.about-content-right {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.about-content-left {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.about-content-left .about-text {
+			order: 2;
+		}
+
+		.about-content-left AboutArtifacts {
+			order: 1;
+		}
 	}
 
 	/* Section Titles */
@@ -789,10 +850,6 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 		}
 
 		.hero-content {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		.engagement-content {
 			grid-template-columns: 1fr 1fr;
 		}
 
