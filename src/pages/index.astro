@@ -7,6 +7,7 @@ import PolicyIcons from '../components/PolicyIcons.astro';
 import MembershipBackground from '../components/MembershipBackground.astro';
 import EngagementBackground from '../components/EngagementBackground.astro';
 import EventsSlider from '../components/EventsSlider.astro';
+import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 ---
 
 <Layout title="The Kick Enterprise Club">
@@ -162,7 +163,7 @@ import EventsSlider from '../components/EventsSlider.astro';
 		<!-- Policy Areas -->
 		<section id="policy" class="section">
 			<div class="container">
-				<h2 class="section-title">Policy Areas</h2>
+				<h2 class="section-title section-title-centered">Policy Areas</h2>
 				<div class="policy-grid">
 					<div class="policy-item">
 						<PolicyIcons icon="bsb" />
@@ -194,7 +195,8 @@ import EventsSlider from '../components/EventsSlider.astro';
 		</section>
 
 		<!-- Endorsements -->
-		<section id="endorsements" class="section">
+		<section id="endorsements" class="section endorsements-section">
+			<EndorsementsBackground />
 			<div class="container">
 				<h2 class="section-title">Endorsements</h2>
 				<p class="section-body">
@@ -208,14 +210,23 @@ import EventsSlider from '../components/EventsSlider.astro';
 					expectations of our membership: clarity, accountability, and impact.
 				</p>
 				<div class="endorsement-announcement">
-					<p class="section-body">
+					<div class="announcement-icon">
+						<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<circle cx="24" cy="24" r="20" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+							<polygon points="24,14 26,20 33,20 27,24 29,32 24,27 19,32 21,24 15,20 22,20" fill="#c9a227" opacity="0.8"/>
+						</svg>
+					</div>
+					<h3 class="announcement-title">Coming 2026</h3>
+					<p class="announcement-body">
 						We will announce our first cohort of endorsed candidates ahead of the 2026
 						general election. More information will be shared as the process is finalized
 						— including how members can participate in candidate evaluation and platform
 						alignment.
 					</p>
 				</div>
-				<a href="#" class="btn btn-secondary">Join the List for Updates</a>
+				<div class="endorsement-cta">
+					<a href="#" class="btn btn-gold">Join the List for Updates</a>
+				</div>
 			</div>
 		</section>
 
@@ -415,6 +426,18 @@ import EventsSlider from '../components/EventsSlider.astro';
 		color: #ffffff;
 	}
 
+	.btn-gold {
+		background: #c9a227;
+		color: #ffffff;
+		border: 2px solid #c9a227;
+		padding: 14px 28px;
+	}
+
+	.btn-gold:hover {
+		background: #b8912a;
+		border-color: #b8912a;
+	}
+
 	.btn-large {
 		padding: 16px 36px;
 		font-size: 16px;
@@ -426,6 +449,10 @@ import EventsSlider from '../components/EventsSlider.astro';
 		font-weight: 600;
 		margin: 0 0 24px 0;
 		color: #1a1a1a;
+	}
+
+	.section-title-centered {
+		text-align: center;
 	}
 
 	.section-intro {
@@ -521,43 +548,101 @@ import EventsSlider from '../components/EventsSlider.astro';
 	/* Policy Grid */
 	.policy-grid {
 		display: grid;
-		grid-template-columns: 1fr;
-		gap: 24px;
-		max-width: 700px;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 16px;
+		max-width: 1000px;
+		margin: 0 auto;
 	}
 
 	.policy-item {
-		padding: 20px 0;
-		border-bottom: 1px solid #e5e5e5;
+		padding: 24px 20px;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		border-radius: 4px;
+		text-align: center;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.policy-item:hover {
+		border-color: #6b1986;
+		box-shadow: 0 4px 16px rgba(107, 25, 134, 0.08);
 	}
 
 	.policy-item:last-child {
-		border-bottom: none;
+		border-bottom: 1px solid #e5e5e5;
 	}
 
 	.policy-label {
 		font-family: 'Inter', system-ui, -apple-system, sans-serif;
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 600;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		color: #6b1986;
 		display: block;
-		margin-bottom: 8px;
+		margin-bottom: 10px;
 	}
 
 	.policy-body {
-		font-size: 17px;
-		line-height: 1.6;
+		font-size: 15px;
+		line-height: 1.5;
 		margin: 0;
 		color: #1a1a1a;
 	}
 
+	/* Endorsement Section */
+	.endorsements-section {
+		position: relative;
+	}
+
+	.endorsements-section > .container {
+		position: relative;
+		z-index: 1;
+	}
+
 	/* Endorsement Announcement */
 	.endorsement-announcement {
-		padding: 32px;
-		background: #f9f9f9;
-		margin: 24px 0 32px 0;
+		padding: 40px;
+		background: #ffffff;
+		border: 1px solid #e8c547;
+		border-radius: 4px;
+		margin: 32px 0;
+		max-width: 700px;
+		text-align: left;
+		box-shadow: 0 4px 20px rgba(201, 162, 39, 0.08);
+	}
+
+	.announcement-icon {
+		display: flex;
+		justify-content: flex-start;
+		margin-bottom: 16px;
+	}
+
+	.announcement-icon svg {
+		width: 48px;
+		height: 48px;
+	}
+
+	.announcement-title {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #c9a227;
+		margin: 0 0 16px 0;
+	}
+
+	.announcement-body {
+		font-size: 16px;
+		line-height: 1.7;
+		margin: 0;
+		color: #1a1a1a;
+	}
+
+	.endorsement-cta {
+		text-align: left;
+		margin-top: 24px;
 	}
 
 	/* Event CTA */
@@ -726,6 +811,10 @@ import EventsSlider from '../components/EventsSlider.astro';
 			padding: 0 64px;
 		}
 
+		.policy-grid {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
 		.tiers {
 			grid-template-columns: repeat(3, 1fr);
 		}
@@ -733,6 +822,10 @@ import EventsSlider from '../components/EventsSlider.astro';
 
 	/* Mobile adjustments */
 	@media (max-width: 767px) {
+		.policy-grid {
+			grid-template-columns: 1fr;
+		}
+
 		.event-cta .btn {
 			width: 100%;
 		}
