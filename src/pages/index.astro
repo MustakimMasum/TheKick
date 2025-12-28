@@ -38,7 +38,7 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 		<section id="what-we-build" class="section about-section">
 			<div class="container">
 				<div class="about-content about-content-right">
-					<div class="about-text">
+					<div class="about-text fade-in-left">
 						<h2 class="section-title">What We're Building</h2>
 						<p class="section-intro">
 							The Kick is a civic platform for aligned leadership. Our members contribute
@@ -64,7 +64,7 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 			<div class="container">
 				<div class="about-content about-content-left">
 					<AboutArtifacts type="who" align="left" />
-					<div class="about-text">
+					<div class="about-text fade-in-right">
 						<h2 class="section-title">Who It's For</h2>
 						<p class="section-body">
 							Our membership includes founders, executives, investors, and business leaders.
@@ -80,7 +80,7 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 		<section id="about" class="section about-section">
 			<div class="container">
 				<div class="about-content about-content-right">
-					<div class="about-text">
+					<div class="about-text fade-in-left">
 						<h2 class="section-title">Why We Exist</h2>
 						<p class="section-body">
 							Political outcomes are too often shaped by theater, not strategy — and by
@@ -104,7 +104,7 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 			<div class="container">
 				<div class="about-content about-content-left">
 					<AboutArtifacts type="believe" align="left" />
-					<div class="about-text">
+					<div class="about-text fade-in-right">
 						<h2 class="section-title">What We Believe</h2>
 						<ul class="belief-list">
 							<li>
@@ -131,7 +131,7 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 		<section class="section about-section">
 			<div class="container">
 				<div class="about-content about-content-right">
-					<div class="about-text">
+					<div class="about-text fade-in-left">
 						<h2 class="section-title">Our Origin</h2>
 						<p class="section-body">
 							The Kick was created by a group of civic and business leaders who saw a clear
@@ -887,4 +887,166 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 			width: 100%;
 		}
 	}
+
+	/* Scroll Animations */
+	.fade-in {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+
+	.fade-in.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.fade-in-left {
+		opacity: 0;
+		transform: translateX(-40px);
+		transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+
+	.fade-in-left.visible {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.fade-in-right {
+		opacity: 0;
+		transform: translateX(40px);
+		transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+
+	.fade-in-right.visible {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.scale-in {
+		opacity: 0;
+		transform: scale(0.9);
+		transition: opacity 0.6s ease, transform 0.6s ease;
+	}
+
+	.scale-in.visible {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	/* Staggered list items */
+	.bullet-list li,
+	.belief-list li {
+		opacity: 0;
+		transform: translateX(-20px);
+		transition: opacity 0.5s ease, transform 0.5s ease;
+	}
+
+	.bullet-list.visible li,
+	.belief-list.visible li {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	/* Artifact hover animations */
+	.about-artifact svg {
+		transition: transform 0.3s ease;
+	}
+
+	.about-artifact:hover svg {
+		transform: scale(1.03);
+	}
+
+	/* Pulse animation for artifact elements */
+	@keyframes pulse {
+		0%, 100% {
+			opacity: 0.5;
+		}
+		50% {
+			opacity: 0.8;
+		}
+	}
+
+	.about-artifact-visible circle,
+	.about-artifact-visible rect {
+		animation: pulse 3s ease-in-out infinite;
+	}
+
+	.about-artifact-visible circle:nth-child(2),
+	.about-artifact-visible rect:nth-child(2) {
+		animation-delay: 0.5s;
+	}
+
+	.about-artifact-visible circle:nth-child(3),
+	.about-artifact-visible rect:nth-child(3) {
+		animation-delay: 1s;
+	}
 </style>
+
+<script>
+	// Scroll Animation Observer
+	function initScrollAnimations() {
+		// Fade in animation
+		const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in');
+
+		// Staggered list animation
+		const listElements = document.querySelectorAll('.bullet-list, .belief-list');
+
+		// Artifact animations
+		const artifacts = document.querySelectorAll('.about-artifact');
+
+		const observerOptions = {
+			root: null,
+			rootMargin: '0px 0px -100px 0px',
+			threshold: 0.15
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+
+					// Handle list items with stagger
+					if (entry.target.classList.contains('bullet-list') || entry.target.classList.contains('belief-list')) {
+						const items = entry.target.querySelectorAll('li');
+						items.forEach((item, index) => {
+							setTimeout(() => {
+								item.style.transitionDelay = `${index * 0.1}s`;
+								item.style.opacity = '1';
+								item.style.transform = 'translateX(0)';
+							}, index * 80);
+						});
+					}
+
+					// Add visible class to artifacts for animation
+					if (entry.target.classList.contains('about-artifact')) {
+						entry.target.classList.add('about-artifact-visible');
+					}
+
+					observer.unobserve(entry.target);
+				}
+			});
+		}, observerOptions);
+
+		// Observe fade elements
+		fadeElements.forEach(el => observer.observe(el));
+
+		// Observe lists
+		listElements.forEach(el => {
+			el.classList.add('fade-in');
+			observer.observe(el);
+		});
+
+		// Observe artifacts
+		artifacts.forEach(el => {
+			el.classList.add('scale-in');
+			observer.observe(el);
+		});
+	}
+
+	// Run on load
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initScrollAnimations);
+	} else {
+		initScrollAnimations();
+	}
+</script>
