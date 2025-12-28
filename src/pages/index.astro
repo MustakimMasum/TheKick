@@ -5,6 +5,8 @@ import Footer from '../components/Footer.astro';
 import HeroArtifact from '../components/HeroArtifact.astro';
 import PolicyIcons from '../components/PolicyIcons.astro';
 import MembershipBackground from '../components/MembershipBackground.astro';
+import EngagementBackground from '../components/EngagementBackground.astro';
+import EventsSlider from '../components/EventsSlider.astro';
 ---
 
 <Layout title="The Kick Enterprise Club">
@@ -122,7 +124,8 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 		</section>
 
 		<!-- Engagement -->
-		<section id="engagement" class="section">
+		<section id="engagement" class="section engagement-section">
+			<EngagementBackground />
 			<div class="container">
 				<h2 class="section-title">Engagement</h2>
 				<h3 class="subsection-title">Monthly Leadership Lunches</h3>
@@ -220,23 +223,16 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 		<section id="events" class="section">
 			<div class="container">
 				<h2 class="section-title">Upcoming Events</h2>
-				<h3 class="subsection-title">Monthly Leadership Luncheons</h3>
-				<p class="section-body">
-					The Kick hosts a recurring monthly luncheon series designed for business
-					leaders, civic contributors, and anyone ready to connect around shared
-					priorities for Harris County.
+				<p class="section-intro">
+					Join us for our Monthly Leadership Luncheons — designed for business leaders,
+					civic contributors, and anyone ready to connect around shared priorities for
+					Harris County.
 				</p>
-				<p class="section-body">
-					Each gathering features a focused conversation — with candidates, policy voices,
-					or issue-area leaders — along with time to build real relationships across
-					sectors. Whether you're a longtime member or just getting to know us, these
-					events are open to anyone.
-				</p>
-				<div class="event-actions">
+				<EventsSlider />
+				<div class="event-cta">
 					<a href="#membership" class="btn btn-primary">Reserve Your Spot</a>
-					<a href="#membership" class="btn btn-secondary">Complete Payment</a>
+					<p class="event-note">No membership required. Space is limited.</p>
 				</div>
-				<p class="event-note">No membership required. Space is limited.</p>
 			</div>
 		</section>
 
@@ -277,7 +273,7 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 					</div>
 				</div>
 				<div class="membership-cta">
-					<a href="#" class="btn btn-primary btn-large">Join Now</a>
+					<a href="#" class="btn btn-outline btn-large">Join Now</a>
 					<p class="membership-note">
 						Advisor and Senior Advisor are our most common membership levels —
 						sustaining the infrastructure, access, and influence we're building together.
@@ -332,7 +328,7 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 	}
 
 	.container {
-		max-width: 1200px;
+		max-width: 1080px;
 		margin: 0 auto;
 		padding: 0 24px;
 	}
@@ -403,6 +399,18 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 	}
 
 	.btn-secondary:hover {
+		background: #6b1986;
+		color: #ffffff;
+	}
+
+	.btn-outline {
+		background: transparent;
+		color: #6b1986;
+		border: 2px solid #6b1986;
+		padding: 14px 28px;
+	}
+
+	.btn-outline:hover {
 		background: #6b1986;
 		color: #ffffff;
 	}
@@ -494,10 +502,20 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 
 	/* Engagement Note */
 	.engagement-note {
-		margin-top: 40px;
-		padding: 32px;
-		background: #f9f9f9;
+		margin-top: 32px;
+		padding: 28px;
+		background: #ffffff;
 		border-left: 3px solid #6b1986;
+	}
+
+	/* Engagement Section with background */
+	.engagement-section {
+		position: relative;
+	}
+
+	.engagement-section > .container {
+		position: relative;
+		z-index: 1;
 	}
 
 	/* Policy Grid */
@@ -542,19 +560,17 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 		margin: 24px 0 32px 0;
 	}
 
-	/* Event Actions */
-	.event-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 16px;
-		margin: 32px 0 16px 0;
+	/* Event CTA */
+	.event-cta {
+		text-align: center;
+		margin-top: 32px;
 	}
 
 	.event-note {
 		font-size: 14px;
 		color: #666;
 		font-style: italic;
-		margin: 0;
+		margin: 16px 0 0 0;
 	}
 
 	/* Membership Section */
@@ -691,6 +707,10 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 			grid-template-columns: 1fr 1fr;
 		}
 
+		.engagement-content {
+			grid-template-columns: 1fr 1fr;
+		}
+
 		.policy-grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
@@ -713,11 +733,7 @@ import MembershipBackground from '../components/MembershipBackground.astro';
 
 	/* Mobile adjustments */
 	@media (max-width: 767px) {
-		.event-actions {
-			flex-direction: column;
-		}
-
-		.event-actions .btn {
+		.event-cta .btn {
 			width: 100%;
 		}
 	}

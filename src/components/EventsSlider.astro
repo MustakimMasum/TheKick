@@ -1,0 +1,379 @@
+---
+// Events Slider Component
+const events = [
+	{
+		date: 'January 15, 2026',
+		time: '12:00 PM - 2:00 PM',
+		location: 'The Galleria, Houston',
+		title: 'State of Harris County',
+		speaker: 'Commissioner Ellis',
+		description: 'A conversation about the priorities and challenges facing Harris County in the coming year.',
+	},
+	{
+		date: 'February 19, 2026',
+		time: '12:00 PM - 2:00 PM',
+		location: 'Downtown Houston',
+		title: 'Education & Workforce Development',
+		speaker: 'Trustee Davis',
+		description: 'Discussing the intersection of public education and economic opportunity in our region.',
+	},
+	{
+		date: 'March 12, 2026',
+		time: '12:00 PM - 2:00 PM',
+		location: 'Midtown Houston',
+		title: 'Healthcare Access Policy',
+		speaker: 'Dr. Martinez',
+		description: 'Exploring solutions for expanding healthcare access across underserved communities.',
+	},
+	{
+		date: 'April 16, 2026',
+		time: '12:00 PM - 2:00 PM',
+		location: 'River Oaks, Houston',
+		title: 'Economic Development Forum',
+		speaker: 'Director Johnson',
+		description: 'Business leaders and policy makers discuss strategies for sustainable growth.',
+	},
+];
+---
+
+<div class="events-slider" id="eventsSlider">
+	<div class="slider-container">
+		<button class="slider-arrow slider-arrow-prev" id="prevBtn" aria-label="Previous events">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<polyline points="15 18 9 12 15 6"/>
+			</svg>
+		</button>
+
+		<div class="slider-track" id="sliderTrack">
+			{events.map((event) => (
+				<div class="event-card">
+					<div class="event-date">
+						<span class="event-month">{event.date.split(' ')[0]}</span>
+						<span class="event-day">{event.date.split(' ')[1].replace(',', '')}</span>
+					</div>
+					<div class="event-content">
+						<h3 class="event-title">{event.title}</h3>
+						<p class="event-speaker">Featured Speaker: {event.speaker}</p>
+						<p class="event-description">{event.description}</p>
+						<div class="event-meta">
+							<span class="event-meta-item">
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<circle cx="12" cy="12" r="10"/>
+									<polyline points="12 6 12 12 16 14"/>
+								</svg>
+								{event.time}
+							</span>
+							<span class="event-meta-item">
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+									<circle cx="12" cy="10" r="3"/>
+								</svg>
+								{event.location}
+							</span>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<button class="slider-arrow slider-arrow-next" id="nextBtn" aria-label="Next events">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<polyline points="9 18 15 12 9 6"/>
+			</svg>
+		</button>
+	</div>
+
+	<div class="slider-dots" id="sliderDots"></div>
+</div>
+
+<style>
+	.events-slider {
+		position: relative;
+		margin: 40px 0 0 0;
+	}
+
+	.slider-container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.slider-track {
+		display: flex;
+		gap: 20px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+		padding: 8px 4px;
+	 scrollbar-width: none;
+	}
+
+	.slider-track::-webkit-scrollbar {
+		display: none;
+	}
+
+	.event-card {
+		flex: 0 0 100%;
+		scroll-snap-align: start;
+		display: flex;
+		gap: 20px;
+		padding: 28px;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.event-card:hover {
+		border-color: #6b1986;
+		box-shadow: 0 4px 20px rgba(107, 25, 134, 0.08);
+	}
+
+	.event-date {
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 70px;
+		height: 70px;
+		background: #6b1986;
+		color: #ffffff;
+		border-radius: 2px;
+	}
+
+	.event-month {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.event-day {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	.event-content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.event-title {
+		font-size: 20px;
+		font-weight: 600;
+		margin: 0 0 8px 0;
+		color: #1a1a1a;
+	}
+
+	.event-speaker {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #6b1986;
+		margin: 0 0 12px 0;
+	}
+
+	.event-description {
+		font-size: 15px;
+		line-height: 1.6;
+		color: #666;
+		margin: 0 0 16px 0;
+	}
+
+	.event-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.event-meta-item {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 13px;
+		color: #666;
+	}
+
+	.event-meta-item svg {
+		flex-shrink: 0;
+		color: #6b1986;
+	}
+
+	.slider-arrow {
+		flex-shrink: 0;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		color: #666;
+	}
+
+	.slider-arrow:hover {
+		background: #6b1986;
+		border-color: #6b1986;
+		color: #ffffff;
+	}
+
+	.slider-arrow:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
+
+	.slider-arrow:disabled:hover {
+		background: #ffffff;
+		border-color: #e5e5e5;
+		color: #666;
+	}
+
+	.slider-dots {
+		display: flex;
+		justify-content: center;
+		gap: 6px;
+		margin-top: 28px;
+	}
+
+	.slider-dot {
+		width: 40px;
+		height: 4px;
+		border-radius: 2px;
+		background: #e5e5e5;
+		border: none;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.slider-dot:hover {
+		background: #c9a6d4;
+	}
+
+	.slider-dot.active {
+		background: #6b1986;
+		width: 48px;
+	}
+
+	/* Tablet */
+	@media (min-width: 768px) {
+		.event-card {
+			flex: 0 0 calc(50% - 10px);
+		}
+
+		.slider-arrow {
+			display: flex;
+		}
+	}
+
+	/* Desktop */
+	@media (min-width: 1024px) {
+		.event-card {
+			flex: 0 0 calc(33.333% - 14px);
+		}
+	}
+</style>
+
+<script>
+	const track = document.getElementById('sliderTrack');
+	const prevBtn = document.getElementById('prevBtn');
+	const nextBtn = document.getElementById('nextBtn');
+	const dotsContainer = document.getElementById('sliderDots');
+
+	// Create dots
+	const cards = track.querySelectorAll('.event-card');
+	const totalSlides = cards.length;
+
+	for (let i = 0; i < totalSlides; i++) {
+		const dot = document.createElement('button');
+		dot.className = 'slider-dot';
+		dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+		if (i === 0) dot.classList.add('active');
+		dot.addEventListener('click', () => scrollToSlide(i));
+		dotsContainer.appendChild(dot);
+	}
+
+	const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+	function getCardWidth() {
+		return cards[0].offsetWidth + 20; // card + gap
+	}
+
+	function scrollToSlide(index) {
+		const cardWidth = getCardWidth();
+		track.scrollTo({
+			left: cardWidth * index,
+			behavior: 'smooth',
+		});
+	}
+
+	function updateDots() {
+		const scrollLeft = track.scrollLeft;
+		const cardWidth = getCardWidth();
+		const trackCenter = scrollLeft + (track.clientWidth / 2);
+
+		// Find which card is most visible (center of viewport)
+		let activeIndex = 0;
+		let closestDistance = Infinity;
+
+		cards.forEach((card, i) => {
+			const cardCenter = (i * cardWidth) + (card.offsetWidth / 2);
+			const distance = Math.abs(trackCenter - cardCenter);
+			if (distance < closestDistance) {
+				closestDistance = distance;
+				activeIndex = i;
+			}
+		});
+
+		// Clamp activeIndex to valid range
+		activeIndex = Math.max(0, Math.min(totalSlides - 1, activeIndex));
+
+		dots.forEach((dot, i) => {
+			dot.classList.toggle('active', i === activeIndex);
+		});
+
+		// Update button states
+		const isAtStart = scrollLeft < 10;
+		const maxScroll = track.scrollWidth - track.clientWidth;
+		const isAtEnd = scrollLeft >= maxScroll - 10;
+		prevBtn.disabled = isAtStart;
+		nextBtn.disabled = isAtEnd;
+	}
+
+	// Throttled scroll handler for better performance
+	let scrollTimeout;
+	track.addEventListener('scroll', () => {
+		updateDots();
+	}, { passive: true });
+
+	prevBtn.addEventListener('click', () => {
+		const cardWidth = getCardWidth();
+		const newIndex = Math.max(0, Math.round(track.scrollLeft / cardWidth) - 1);
+		scrollToSlide(newIndex);
+	});
+
+	nextBtn.addEventListener('click', () => {
+		const cardWidth = getCardWidth();
+		const newIndex = Math.min(totalSlides - 1, Math.round(track.scrollLeft / cardWidth) + 1);
+		scrollToSlide(newIndex);
+	});
+
+	// Initial update
+	updateDots();
+
+	// Recalculate on resize
+	let resizeTimer;
+	window.addEventListener('resize', () => {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(() => {
+			updateDots();
+		}, 100);
+	});
+</script>
