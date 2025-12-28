@@ -475,32 +475,39 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 	}
 
 	.about-content {
-		display: grid;
-		grid-template-columns: 1fr;
+		display: flex;
+		flex-direction: column;
 		gap: 40px;
-		align-items: center;
 	}
 
 	.about-text {
 		max-width: 600px;
 	}
 
-	/* Responsive - Tablet */
-	@media (min-width: 768px) {
-		.about-content-right {
-			grid-template-columns: 1fr 1fr;
-		}
+	/* Mobile: swap order for left-aligned sections */
+	.about-content-left .about-text {
+		order: -1;
+	}
 
-		.about-content-left {
+	/* Responsive - Tablet: alternating layout with grid */
+	@media (min-width: 768px) {
+		.about-content {
+			display: grid;
 			grid-template-columns: 1fr 1fr;
+			align-items: center;
 		}
 
 		.about-content-left .about-text {
 			order: 2;
 		}
 
-		.about-content-left AboutArtifacts {
+		.about-content-left .about-artifact {
 			order: 1;
+		}
+
+		.about-content-right .about-text,
+		.about-content-right .about-artifact {
+			order: unset;
 		}
 	}
 

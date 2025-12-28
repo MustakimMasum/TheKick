@@ -292,37 +292,44 @@ const navLinks = [
 </style>
 
 <script>
-	const hamburger = document.getElementById('hamburger');
-	const mobileMenu = document.getElementById('mobileMenu');
-	const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
+	function initMobileMenu() {
+		const hamburger = document.getElementById('hamburger');
+		const mobileMenu = document.getElementById('mobileMenu');
+		const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
 
-	if (!hamburger || !mobileMenu) {
-		throw new Error('Required mobile menu elements not found');
-	}
+		if (!hamburger || !mobileMenu) return;
 
-	function toggleMenu() {
-		const isOpen = mobileMenu!.classList.toggle('open');
-		hamburger!.setAttribute('aria-expanded', String(isOpen));
-		document.body.style.overflow = isOpen ? 'hidden' : '';
-	}
+		// Non-null assertions: we've verified these exist above
+		const menu = mobileMenu!;
+		const burger = hamburger!;
 
-	function closeMenu() {
-		mobileMenu!.classList.remove('open');
-		hamburger!.setAttribute('aria-expanded', 'false');
-		document.body.style.overflow = '';
-	}
-
-	hamburger.addEventListener('click', toggleMenu);
-
-	// Close menu when clicking a link
-	mobileLinks.forEach(link => {
-		link.addEventListener('click', closeMenu);
-	});
-
-	// Close menu when clicking outside
-	document.addEventListener('click', (e) => {
-		if (e.target && !hamburger.contains(e.target as Node) && !mobileMenu.contains(e.target as Node)) {
-			closeMenu();
+		function toggleMenu() {
+			const isOpen = menu.classList.toggle('open');
+			burger.setAttribute('aria-expanded', String(isOpen));
+			document.body.style.overflow = isOpen ? 'hidden' : '';
 		}
-	});
+
+		function closeMenu() {
+			menu.classList.remove('open');
+			burger.setAttribute('aria-expanded', 'false');
+			document.body.style.overflow = '';
+		}
+
+		burger.addEventListener('click', toggleMenu);
+
+		// Close menu when clicking a link
+		mobileLinks.forEach(link => {
+			link.addEventListener('click', closeMenu);
+		});
+
+		// Close menu when clicking outside
+		document.addEventListener('click', (e) => {
+			const target = e.target as Node;
+			if (target && !burger.contains(target) && !menu.contains(target)) {
+				closeMenu();
+			}
+		});
+	}
+
+	initMobileMenu();
 </script>
