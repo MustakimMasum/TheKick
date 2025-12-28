@@ -205,7 +205,8 @@ const colors = {
 	.about-artifact {
 		width: 100%;
 		max-width: 400px;
-		display: none;
+		display: block;
+		margin: 32px 0;
 	}
 
 	.about-artifact svg {
@@ -213,10 +214,10 @@ const colors = {
 		height: auto;
 	}
 
-	/* Tablet and up - show artifacts with alternating layout */
+	/* Tablet and up - alternating layout with margins */
 	@media (min-width: 768px) {
 		.about-artifact {
-			display: block;
+			margin: 0;
 		}
 
 		.about-artifact-right {

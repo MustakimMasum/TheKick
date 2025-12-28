@@ -27,7 +27,30 @@ const navLinks = [
 			</nav>
 
 			<a href="#membership" class="btn btn-small btn-outline">Join Now</a>
+
+			<!-- Mobile hamburger button -->
+			<button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 		</div>
+	</div>
+
+	<!-- Mobile menu -->
+	<div class="mobile-menu" id="mobileMenu">
+		<nav class="mobile-nav" role="navigation">
+			<ul class="mobile-nav-list">
+				{navLinks.map((link) => (
+					<li>
+						<a href={link.href} class="mobile-nav-link">{link.text}</a>
+					</li>
+				))}
+				<li>
+					<a href="#membership" class="mobile-nav-cta">Join Now</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
 </header>
 
@@ -141,6 +164,100 @@ const navLinks = [
 		color: #ffffff;
 	}
 
+	/* Hamburger button */
+	.hamburger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+		width: 44px;
+		height: 44px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+	}
+
+	.hamburger span {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: #1a1a1a;
+		transition: all 0.3s ease;
+		border-radius: 2px;
+	}
+
+	.hamburger:hover span {
+		background: #6b1986;
+	}
+
+	.hamburger[aria-expanded="true"] span:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 6px);
+	}
+
+	.hamburger[aria-expanded="true"] span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.hamburger[aria-expanded="true"] span:nth-child(3) {
+		transform: rotate(-45deg) translate(5px, -6px);
+	}
+
+	/* Mobile menu */
+	.mobile-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: #ffffff;
+		border-bottom: 1px solid #e5e5e5;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+	}
+
+	.mobile-menu.open {
+		max-height: 400px;
+	}
+
+	.mobile-nav-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.mobile-nav-link,
+	.mobile-nav-cta {
+		display: block;
+		padding: 16px 24px;
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 16px;
+		font-weight: 500;
+		text-decoration: none;
+		color: #1a1a1a;
+		border-bottom: 1px solid #f0f0f0;
+		transition: all 0.2s ease;
+	}
+
+	.mobile-nav-link:hover {
+		background: #f9f9f9;
+		color: #6b1986;
+	}
+
+	.mobile-nav-cta {
+		background: #6b1986;
+		color: #ffffff;
+		text-align: center;
+		margin-top: 8px;
+		border-radius: 2px;
+		border-bottom: none;
+	}
+
+	.mobile-nav-cta:hover {
+		background: #55136b;
+		color: #ffffff;
+	}
+
 	/* Tablet and up */
 	@media (min-width: 768px) {
 		.nav {
@@ -158,10 +275,14 @@ const navLinks = [
 		}
 	}
 
-	/* Mobile - hide nav and button, keep logo */
+	/* Mobile */
 	@media (max-width: 767px) {
+		.hamburger {
+			display: flex;
+		}
+
 		.header-inner {
-			justify-content: center;
+			justify-content: space-between;
 		}
 
 		.btn {
@@ -169,3 +290,39 @@ const navLinks = [
 		}
 	}
 </style>
+
+<script>
+	const hamburger = document.getElementById('hamburger');
+	const mobileMenu = document.getElementById('mobileMenu');
+	const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
+
+	if (!hamburger || !mobileMenu) {
+		throw new Error('Required mobile menu elements not found');
+	}
+
+	function toggleMenu() {
+		const isOpen = mobileMenu!.classList.toggle('open');
+		hamburger!.setAttribute('aria-expanded', String(isOpen));
+		document.body.style.overflow = isOpen ? 'hidden' : '';
+	}
+
+	function closeMenu() {
+		mobileMenu!.classList.remove('open');
+		hamburger!.setAttribute('aria-expanded', 'false');
+		document.body.style.overflow = '';
+	}
+
+	hamburger.addEventListener('click', toggleMenu);
+
+	// Close menu when clicking a link
+	mobileLinks.forEach(link => {
+		link.addEventListener('click', closeMenu);
+	});
+
+	// Close menu when clicking outside
+	document.addEventListener('click', (e) => {
+		if (e.target && !hamburger.contains(e.target as Node) && !mobileMenu.contains(e.target as Node)) {
+			closeMenu();
+		}
+	});
+</script>
