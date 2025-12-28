@@ -5,7 +5,8 @@
       "Bash(npm run dev:*)",
       "Bash(copy:*)",
       "mcp__ide__getDiagnostics",
-      "Bash(git remote get-url:*)"
+      "Bash(git remote get-url:*)",
+      "Bash(npm run build)"
     ],
     "deny": [],
     "ask": []
