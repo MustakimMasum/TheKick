@@ -1,0 +1,67 @@
+---
+// Policy Area Icons - Pass the icon type as prop
+const { icon }: { icon: 'bsb' | 'healthcare' | 'education' | 'energy' | 'tech' } = Astro.props;
+---
+
+{icon === 'bsb' && (
+	<svg class="policy-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<rect x="8" y="20" width="32" height="22" fill="none" stroke="#6b1986" stroke-width="2"/>
+		<rect x="12" y="24" width="8" height="6" fill="#6b1986" opacity="0.3"/>
+		<rect x="22" y="24" width="8" height="6" fill="#6b1986" opacity="0.3"/>
+		<rect x="32" y="24" width="4" height="6" fill="#6b1986" opacity="0.3"/>
+		<rect x="12" y="32" width="6" height="6" fill="#6b1986" opacity="0.3"/>
+		<rect x="20" y="32" width="10" height="6" fill="#6b1986" opacity="0.3"/>
+		<rect x="32" y="32" width="4" height="6" fill="#6b1986" opacity="0.3"/>
+		<path d="M8 20 L24 6 L40 20" fill="none" stroke="#6b1986" stroke-width="2" stroke-linejoin="round"/>
+		<rect x="20" y="10" width="8" height="4" fill="#6b1986"/>
+	</svg>
+)}
+
+{icon === 'healthcare' && (
+	<svg class="policy-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<circle cx="24" cy="24" r="18" fill="none" stroke="#6b1986" stroke-width="2"/>
+		<rect x="22" y="14" width="4" height="20" fill="#6b1986"/>
+		<rect x="14" y="22" width="20" height="4" fill="#6b1986"/>
+	</svg>
+)}
+
+{icon === 'education' && (
+	<svg class="policy-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<rect x="6" y="18" width="36" height="24" fill="none" stroke="#6b1986" stroke-width="2"/>
+		<path d="M6 18 L24 8 L42 18" fill="none" stroke="#6b1986" stroke-width="2" stroke-linejoin="round"/>
+		<rect x="20" y="26" width="8" height="10" fill="#6b1986" opacity="0.3"/>
+		<line x1="24" y1="26" x2="24" y2="36" stroke="#6b1986" stroke-width="1"/>
+	</svg>
+)}
+
+{icon === 'energy' && (
+	<svg class="policy-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<path d="M28 6 L18 20 L26 20 L20 42 L32 24 L24 24 Z" fill="none" stroke="#6b1986" stroke-width="2" stroke-linejoin="round"/>
+		<path d="M28 6 L18 20 L26 20 L20 42 L32 24 L24 24 Z" fill="#6b1986" opacity="0.2"/>
+	</svg>
+)}
+
+{icon === 'tech' && (
+	<svg class="policy-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<rect x="8" y="8" width="32" height="32" rx="4" fill="none" stroke="#6b1986" stroke-width="2"/>
+		<circle cx="24" cy="24" r="6" fill="#6b1986" opacity="0.3"/>
+		<circle cx="24" cy="24" r="2" fill="#6b1986"/>
+		<line x1="24" y1="8" x2="24" y2="14" stroke="#6b1986" stroke-width="2"/>
+		<line x1="24" y1="34" x2="24" y2="40" stroke="#6b1986" stroke-width="2"/>
+		<line x1="8" y1="24" x2="14" y2="24" stroke="#6b1986" stroke-width="2"/>
+		<line x1="34" y1="24" x2="40" y2="24" stroke="#6b1986" stroke-width="2"/>
+		<circle cx="14" cy="14" r="2" fill="#6b1986" opacity="0.5"/>
+		<circle cx="34" cy="14" r="2" fill="#6b1986" opacity="0.5"/>
+		<circle cx="14" cy="34" r="2" fill="#6b1986" opacity="0.5"/>
+		<circle cx="34" cy="34" r="2" fill="#6b1986" opacity="0.5"/>
+	</svg>
+)}
+
+<style>
+	.policy-icon {
+		width: 48px;
+		height: 48px;
+		display: block;
+		margin-bottom: 16px;
+	}
+</style>

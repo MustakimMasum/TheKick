@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroArtifact from '../components/HeroArtifact.astro';
+import PolicyIcons from '../components/PolicyIcons.astro';
+import MembershipBackground from '../components/MembershipBackground.astro';
 ---
 
 <Layout title="The Kick Enterprise Club">
@@ -160,22 +162,27 @@ import HeroArtifact from '../components/HeroArtifact.astro';
 				<h2 class="section-title">Policy Areas</h2>
 				<div class="policy-grid">
 					<div class="policy-item">
+						<PolicyIcons icon="bsb" />
 						<span class="policy-label">BSB</span>
 						<p class="policy-body">Business, Small Business, and economic development</p>
 					</div>
 					<div class="policy-item">
+						<PolicyIcons icon="healthcare" />
 						<span class="policy-label">Healthcare</span>
 						<p class="policy-body">Access, affordability, and system reform</p>
 					</div>
 					<div class="policy-item">
+						<PolicyIcons icon="education" />
 						<span class="policy-label">Education</span>
 						<p class="policy-body">Public schools, funding, and future workforce</p>
 					</div>
 					<div class="policy-item">
+						<PolicyIcons icon="energy" />
 						<span class="policy-label">Energy</span>
 						<p class="policy-body">Sustainable infrastructure and transition</p>
 					</div>
 					<div class="policy-item">
+						<PolicyIcons icon="tech" />
 						<span class="policy-label">Tech & Innovation</span>
 						<p class="policy-body">Future-forward policy for the digital economy</p>
 					</div>
@@ -235,6 +242,7 @@ import HeroArtifact from '../components/HeroArtifact.astro';
 
 		<!-- Membership -->
 		<section id="membership" class="section membership-section">
+			<MembershipBackground />
 			<div class="container">
 				<h2 class="section-title">Membership</h2>
 				<p class="section-intro">
@@ -551,9 +559,15 @@ import HeroArtifact from '../components/HeroArtifact.astro';
 
 	/* Membership Section */
 	.membership-section {
-		background: #f9f9f9;
+		position: relative;
+		background: transparent;
 		border-top: 1px solid #e5e5e5;
 		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.membership-section > .container {
+		position: relative;
+		z-index: 1;
 	}
 
 	.tiers {
