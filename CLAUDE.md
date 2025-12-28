@@ -106,10 +106,146 @@ The MVP is a **single-page landing page** at `/` that incorporates all major sec
 
 Fixed or sticky header with anchor links to each section. Smooth scroll behavior recommended.
 
-## Design Guidance
+## Design System & Style Guide
 
-- **Typography**: Clean serif or modern grotesque for clarity and professional tone
-- **Backgrounds**: Muted architectural texture, abstract civic motifs, or Harris County visuals
-- **Spacing**: Generous spacing, calm layout
-- **CTAs**: Primary buttons should be clear and actionable ("Support The Kick", "Join Now", "Reserve Your Spot")
-- **Visual hierarchy**: Use contrast and weight to emphasize key messages without being overly promotional
+Inspired by **The Atlantic**'s editorial design aesthetic — "bold but classical, beautiful and urgent" — adapted for a political membership organization. Focus on sophistication, credibility, and readability.
+
+**Important:** This is a **political membership site**, not a news publication. Use the editorial aesthetic for trust and authority, but adapt for conversion and membership communication.
+
+### Design Philosophy
+
+Prioritize clarity, hierarchy, and readability. Design must feel authoritative, calm, and intellectual. Avoid flashy UI, gradients, excessive animations, or startup-style visuals.
+
+**Core adjectives to embody:**
+- **Relevant** — Current, forward-thinking
+- **Credible** — Serious, trustworthy, established
+- **Elegant** — Refined, not garish or trendy
+
+### Color Palette
+
+| Role | Color | Usage |
+|------|-------|-------|
+| **Primary Accent** | Red (`#E31B23` or similar) | CTAs, links, logo/wordmark, key emphasis |
+| **Base** | White (`#FFFFFF`) | Backgrounds, clean foundation |
+| **Text Primary** | Near-black (`#1A1A1A`) | Headlines, body text |
+| **Text Secondary** | Muted gray (`#666666`) | Supporting text, labels |
+| **Section Dividers** | Light gray (`#E5E5E5`) | Horizontal rules, borders |
+
+**Accent color usage:** Sparingly — CTAs, section headers, links, hover states. Never use gradients or neon colors.
+
+### Typography
+
+**Font Stack (one serif + one sans-serif):**
+```css
+/* Serif — headlines, body, mission content (mimics AGaramond Pro) */
+font-family: 'Georgia', 'Times New Roman', Times, serif;
+
+/* Sans-serif — navigation, buttons, tier labels, UI (mimics Graphik) */
+font-family: 'Inter', system-ui, -apple-system, sans-serif;
+```
+
+**Hierarchy:**
+| Element | Size | Weight | Style |
+|---------|------|--------|-------|
+| H1 (Hero title) | 40-52px | Bold | Serif |
+| H2 (Section title) | 28-32px | Semibold | Serif, italic optional |
+| H3 (Subsection/Tier) | 20-24px | Semibold | Serif or Sans |
+| Body | 17-19px | Regular | Serif, line-height 1.6-1.8 |
+| Labels, Meta | 13-14px | Medium | Sans-serif, uppercase |
+
+**Key techniques:**
+- Use *italics* and larger size for emphasis — avoid heavy bold
+- Headlines dominate visually
+- Typography over decoration
+
+### Layout & Grid
+
+- **Grid:** 12-column responsive
+- **Gutters:** Desktop 48-64px, Mobile 24-32px
+- **Content Width:** Max ~1200px for main container; ~650px for focused text sections
+- **Responsive:** Desktop (3-4 col) → Tablet (2 col) → Mobile (1 col)
+- **Margins:** Generous white space between sections
+
+### Navigation
+
+- **Position:** Sticky header
+- **Style:** Text-focused, minimal, sans-serif
+- **Links:** Anchor links to main sections with smooth scroll
+- **Layout:** "The Kick" wordmark left, section links right
+
+### Buttons & CTAs
+
+| Type | Style | Usage |
+|------|-------|-------|
+| **Primary** | Solid red bg, white text, rectangular | "Support The Kick", "Join Now", "RSVP" |
+| **Secondary** | White bg, red border, red text | "Learn More", "View Tiers" |
+| **Tertiary** | Underlined text link | In-content navigation |
+
+- Shape: Rectangular, max 2-4px border radius (no pills)
+- Padding: 14-18px vertical, 28-36px horizontal
+- Typography-forward, not heavily styled
+
+### Component Patterns
+
+**Section containers:**
+- Generous vertical padding (80-120px between sections)
+- Optional light divider line between sections
+- No colored backgrounds — white space is the separator
+
+**Membership tiers display:**
+- List or card layout
+- Price prominent (serif, larger)
+- Tier name in sans-serif, uppercase, accent color
+- "Most common" badge on Advisor/Senior Advisor
+
+**Event/promotion blocks:**
+- Two-column layout: text left, image/graphic right (desktop)
+- Stacked on mobile
+- Clear CTA button
+
+### Interaction & UX
+
+**Allowed:**
+- Link underline or color change on hover
+- Subtle elevation on hover
+- Smooth scroll for anchor navigation
+- Purposeful, restrained animations
+
+**Avoid:**
+- Bounce or elastic effects
+- Over-animated transitions
+- Scroll-jacking
+- Heavy shadows
+- Playful or decorative fonts
+
+### Imagery
+
+- Style: Professional, documentary, architectural, or civic
+- No stock-photo smiles or generic business imagery
+- Rectangular, clean aspect ratios
+- Support text, not overpower it
+
+### Hard Constraints (Do NOT)
+
+| ❌ | Avoid |
+|----|-------|
+| | Playful/display fonts |
+| | Gradient backgrounds |
+| | Borders on everything |
+| | Center-aligned body text (left-align only) |
+| | Heavy shadows |
+| | Non-accent bright colors |
+| | Rounded pill buttons |
+| | Excessive animations |
+
+### Code Output Guidelines
+
+- **HTML/CSS:** Semantic, clean
+- **Tailwind:** Restrained utilities, prefer theme values over arbitrary
+- **Components:** Minimal, content-first
+
+Always optimize for:
+✔ Readability
+✔ Credibility
+✔ Calm visual rhythm
+✔ Conversion clarity (this is a membership site)
