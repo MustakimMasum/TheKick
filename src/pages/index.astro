@@ -1,11 +1,710 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroArtifact from '../components/HeroArtifact.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="The Kick Enterprise Club">
+	<Header />
+
+	<main>
+		<!-- Hero Section -->
+		<section id="hero" class="section hero">
+			<div class="container">
+				<div class="hero-content">
+					<div class="hero-text">
+						<h1 class="hero-title">The Kick Enterprise Club</h1>
+						<p class="hero-subtitle">
+							A political home for business leaders aligned with Democratic outcomes — and
+							ready to invest in the infrastructure that makes them possible.
+						</p>
+						<a href="#membership" class="btn btn-primary btn-large">Support The Kick</a>
+					</div>
+					<div class="hero-visual">
+						<HeroArtifact />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- What We're Building -->
+		<section id="what-we-build" class="section">
+			<div class="container">
+				<h2 class="section-title">What We're Building</h2>
+				<p class="section-intro">
+					The Kick is a civic platform for aligned leadership. Our members contribute
+					financially and strategically to:
+				</p>
+				<ul class="bullet-list">
+					<li>Elect Democratic candidates who reflect shared priorities</li>
+					<li>Shape policy direction at the local and state level</li>
+					<li>Build long-term civic infrastructure that outlasts any single campaign</li>
+					<li>
+						Create space for disaffected conservatives who are politically homeless
+						but policy-aligned
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Who It's For -->
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Who It's For</h2>
+				<p class="section-body">
+					Our membership includes founders, executives, investors, and business leaders.
+					What they share is an understanding: that political outcomes require more than
+					values — they require structure, strategy, and sustained investment.
+				</p>
+			</div>
+		</section>
+
+		<!-- About / Why We Exist -->
+		<section id="about" class="section">
+			<div class="container">
+				<h2 class="section-title">Why We Exist</h2>
+				<p class="section-body">
+					Political outcomes are too often shaped by theater, not strategy — and by
+					money without alignment. While business leaders have long influenced policy
+					from the sidelines, we've lacked a civic structure to move capital,
+					relationships, and ideas with intentionality.
+				</p>
+				<p class="section-body">
+					The Kick exists to change that. We're building lasting infrastructure for
+					aligned political engagement, built on capital, clarity, and long-view
+					outcomes.
+				</p>
+			</div>
+		</section>
+
+		<!-- What We Believe -->
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">What We Believe</h2>
+				<ul class="belief-list">
+					<li>
+						That civic investment is serious work, and it deserves systems that match
+						that seriousness.
+					</li>
+					<li>
+						That Democratic outcomes require more than values, they require
+						infrastructure.
+					</li>
+					<li>You don't have to wear a label to do the work. But you do have to show up for it.</li>
+					<li>
+						That we don't need to agree on everything, we just need to move in the same
+						direction.
+					</li>
+					<li>That influence is not a dirty word when it's used to build.</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Our Origin -->
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">Our Origin</h2>
+				<p class="section-body">
+					The Kick was created by a group of civic and business leaders who saw a clear
+					gap. There was no consistent way for serious contributors to influence local
+					Democratic outcomes with focus, strategy, and accountability. Campaigns came
+					and went. Meetings happened. Money moved — but nothing durable was taking shape.
+				</p>
+				<p class="section-body">
+					So they built something new: a platform to organize capital, coordinate
+					engagement, and build the political infrastructure they knew would be needed for
+					the long term.
+				</p>
+			</div>
+		</section>
+
+		<!-- Engagement -->
+		<section id="engagement" class="section">
+			<div class="container">
+				<h2 class="section-title">Engagement</h2>
+				<h3 class="subsection-title">Monthly Leadership Lunches</h3>
+				<p class="section-body">
+					Held monthly, this is The Kick's central forum for trusted engagement. These
+					gatherings are designed for members to hear directly from elected officials,
+					candidates, policy leaders, and issue experts — without the noise of public
+					forums or the fluff of staged panels.
+				</p>
+				<p class="section-body">
+					Each session is grounded in real-time context: what's moving, what matters, and
+					where aligned capital and strategy can have impact. But the most valuable
+					outcome is the one we've designed intentionally: trusted relationships among
+					business leaders who are serious about outcomes, not optics.
+				</p>
+				<div class="engagement-note">
+					<p class="section-body">
+						<strong>A Space for Principled Alignment</strong><br />
+						Not everyone feels at home in today's political landscape, and that's exactly
+						why this space exists. The Kick was built for people who think long-term,
+						act with intention, and believe in contributing to outcomes that reflect
+						shared priorities.
+					</p>
+					<p class="section-body">
+						We don't define people by where they've been, we organize around strategic
+						alignment: with leaders who understand that lasting change requires more than
+						belief. It requires structure, capital, and people willing to build beyond
+						old affiliations.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Policy Areas -->
+		<section id="policy" class="section">
+			<div class="container">
+				<h2 class="section-title">Policy Areas</h2>
+				<div class="policy-grid">
+					<div class="policy-item">
+						<span class="policy-label">BSB</span>
+						<p class="policy-body">Business, Small Business, and economic development</p>
+					</div>
+					<div class="policy-item">
+						<span class="policy-label">Healthcare</span>
+						<p class="policy-body">Access, affordability, and system reform</p>
+					</div>
+					<div class="policy-item">
+						<span class="policy-label">Education</span>
+						<p class="policy-body">Public schools, funding, and future workforce</p>
+					</div>
+					<div class="policy-item">
+						<span class="policy-label">Energy</span>
+						<p class="policy-body">Sustainable infrastructure and transition</p>
+					</div>
+					<div class="policy-item">
+						<span class="policy-label">Tech & Innovation</span>
+						<p class="policy-body">Future-forward policy for the digital economy</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Endorsements -->
+		<section id="endorsements" class="section">
+			<div class="container">
+				<h2 class="section-title">Endorsements</h2>
+				<p class="section-body">
+					The Kick exists to connect serious resources to serious outcomes — and that
+					includes backing candidates who reflect shared priorities and governing
+					competence.
+				</p>
+				<p class="section-body">
+					Our endorsement process is designed to be rigorous, selective, and grounded in
+					long-term thinking. We're building a structure that reflects the values and
+					expectations of our membership: clarity, accountability, and impact.
+				</p>
+				<div class="endorsement-announcement">
+					<p class="section-body">
+						We will announce our first cohort of endorsed candidates ahead of the 2026
+						general election. More information will be shared as the process is finalized
+						— including how members can participate in candidate evaluation and platform
+						alignment.
+					</p>
+				</div>
+				<a href="#" class="btn btn-secondary">Join the List for Updates</a>
+			</div>
+		</section>
+
+		<!-- Upcoming Events -->
+		<section id="events" class="section">
+			<div class="container">
+				<h2 class="section-title">Upcoming Events</h2>
+				<h3 class="subsection-title">Monthly Leadership Luncheons</h3>
+				<p class="section-body">
+					The Kick hosts a recurring monthly luncheon series designed for business
+					leaders, civic contributors, and anyone ready to connect around shared
+					priorities for Harris County.
+				</p>
+				<p class="section-body">
+					Each gathering features a focused conversation — with candidates, policy voices,
+					or issue-area leaders — along with time to build real relationships across
+					sectors. Whether you're a longtime member or just getting to know us, these
+					events are open to anyone.
+				</p>
+				<div class="event-actions">
+					<a href="#membership" class="btn btn-primary">Reserve Your Spot</a>
+					<a href="#membership" class="btn btn-secondary">Complete Payment</a>
+				</div>
+				<p class="event-note">No membership required. Space is limited.</p>
+			</div>
+		</section>
+
+		<!-- Membership -->
+		<section id="membership" class="section membership-section">
+			<div class="container">
+				<h2 class="section-title">Membership</h2>
+				<p class="section-intro">
+					Choose the level that matches your intent and capacity.
+				</p>
+				<div class="tiers">
+					<div class="tier">
+						<span class="tier-name">Member</span>
+						<span class="tier-price">$75<span class="tier-period">/year</span></span>
+					</div>
+					<div class="tier">
+						<span class="tier-name">Kicker</span>
+						<span class="tier-price">$125<span class="tier-period">/year</span></span>
+					</div>
+					<div class="tier tier-highlight">
+						<span class="tier-badge">Most Common</span>
+						<span class="tier-name">Advisor</span>
+						<span class="tier-price">$500<span class="tier-period">/year</span></span>
+					</div>
+					<div class="tier tier-highlight">
+						<span class="tier-badge">Most Common</span>
+						<span class="tier-name">Senior Advisor</span>
+						<span class="tier-price">$1,000<span class="tier-period">/year</span></span>
+					</div>
+					<div class="tier">
+						<span class="tier-name">Partner</span>
+						<span class="tier-price">$2,500<span class="tier-period">/year</span></span>
+					</div>
+					<div class="tier">
+						<span class="tier-name">Executive Partner</span>
+						<span class="tier-price">$5,000<span class="tier-period">/year</span></span>
+					</div>
+				</div>
+				<div class="membership-cta">
+					<a href="#" class="btn btn-primary btn-large">Join Now</a>
+					<p class="membership-note">
+						Advisor and Senior Advisor are our most common membership levels —
+						sustaining the infrastructure, access, and influence we're building together.
+					</p>
+				</div>
+				<div class="coming-soon">
+					<h4 class="coming-soon-title">Coming Q1 2026</h4>
+					<p class="coming-soon-body">
+						<strong>Member Directory</strong> — A private-access directory to help members
+						connect more intentionally across industries, sectors, and areas of interest.
+					</p>
+					<p class="coming-soon-body">
+						<strong>The Dealroom</strong> — A private space where members can post and
+						respond to real opportunities, from vendor contracts to research
+						collaborations.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Bottom CTA -->
+		<section class="section cta-section">
+			<div class="container">
+				<h2 class="section-title">Let's Build Something That Lasts</h2>
+				<p class="section-body">
+					You don't have to wait for better candidates, better headlines, or better
+					systems.
+				</p>
+				<p class="section-body">
+					You can help build the infrastructure that makes them possible, and durable.
+				</p>
+				<p class="section-body">
+					If that sounds like your kind of work, let's connect.
+				</p>
+				<a href="#membership" class="btn btn-primary btn-large">Start Supporter Inquiry</a>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
 </Layout>
+
+<style>
+	/* Base Section Styles */
+	.section {
+		padding: 80px 0;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.section:last-child {
+		border-bottom: none;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	/* Hero */
+	.hero {
+		padding: 80px 0 60px;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.hero-content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 48px;
+		align-items: center;
+	}
+
+	.hero-text {
+		max-width: 600px;
+	}
+
+	.hero-title {
+		font-size: clamp(32px, 5vw, 48px);
+		font-weight: 700;
+		line-height: 1.15;
+		margin: 0 0 24px 0;
+		color: #1a1a1a;
+	}
+
+	.hero-subtitle {
+		font-size: clamp(17px, 2vw, 20px);
+		line-height: 1.6;
+		margin: 0 0 32px 0;
+		color: #666;
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 15px;
+		font-weight: 500;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		border-radius: 2px;
+	}
+
+	.btn-primary {
+		background: #6b1986;
+		color: #ffffff;
+		border: 2px solid #6b1986;
+		padding: 14px 28px;
+	}
+
+	.btn-primary:hover {
+		background: #55136b;
+		border-color: #55136b;
+	}
+
+	.btn-secondary {
+		background: #ffffff;
+		color: #6b1986;
+		border: 2px solid #6b1986;
+		padding: 14px 28px;
+	}
+
+	.btn-secondary:hover {
+		background: #6b1986;
+		color: #ffffff;
+	}
+
+	.btn-large {
+		padding: 16px 36px;
+		font-size: 16px;
+	}
+
+	/* Section Titles */
+	.section-title {
+		font-size: clamp(26px, 4vw, 32px);
+		font-weight: 600;
+		margin: 0 0 24px 0;
+		color: #1a1a1a;
+	}
+
+	.section-intro {
+		font-size: 18px;
+		color: #1a1a1a;
+		margin: 0 0 24px 0;
+		max-width: 650px;
+		line-height: 1.7;
+	}
+
+	.section-body {
+		font-size: 17px;
+		line-height: 1.7;
+		color: #1a1a1a;
+		margin: 0 0 20px 0;
+		max-width: 700px;
+	}
+
+	.subsection-title {
+		font-size: 22px;
+		font-weight: 500;
+		margin: 0 0 20px 0;
+		color: #1a1a1a;
+	}
+
+	/* Bullet Lists */
+	.bullet-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		max-width: 700px;
+	}
+
+	.bullet-list li {
+		font-size: 17px;
+		line-height: 1.7;
+		padding-left: 24px;
+		position: relative;
+		margin-bottom: 12px;
+		color: #1a1a1a;
+	}
+
+	.bullet-list li::before {
+		content: '—';
+		position: absolute;
+		left: 0;
+		color: #6b1986;
+	}
+
+	/* Belief List */
+	.belief-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		max-width: 700px;
+	}
+
+	.belief-list li {
+		font-size: 17px;
+		line-height: 1.7;
+		padding: 20px 0;
+		border-bottom: 1px solid #e5e5e5;
+		color: #1a1a1a;
+	}
+
+	.belief-list li:first-child {
+		padding-top: 0;
+	}
+
+	.belief-list li:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	/* Engagement Note */
+	.engagement-note {
+		margin-top: 40px;
+		padding: 32px;
+		background: #f9f9f9;
+		border-left: 3px solid #6b1986;
+	}
+
+	/* Policy Grid */
+	.policy-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 24px;
+		max-width: 700px;
+	}
+
+	.policy-item {
+		padding: 20px 0;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.policy-item:last-child {
+		border-bottom: none;
+	}
+
+	.policy-label {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: #6b1986;
+		display: block;
+		margin-bottom: 8px;
+	}
+
+	.policy-body {
+		font-size: 17px;
+		line-height: 1.6;
+		margin: 0;
+		color: #1a1a1a;
+	}
+
+	/* Endorsement Announcement */
+	.endorsement-announcement {
+		padding: 32px;
+		background: #f9f9f9;
+		margin: 24px 0 32px 0;
+	}
+
+	/* Event Actions */
+	.event-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin: 32px 0 16px 0;
+	}
+
+	.event-note {
+		font-size: 14px;
+		color: #666;
+		font-style: italic;
+		margin: 0;
+	}
+
+	/* Membership Section */
+	.membership-section {
+		background: #f9f9f9;
+		border-top: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.tiers {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+		margin: 40px 0;
+	}
+
+	.tier {
+		display: flex;
+		flex-direction: column;
+		padding: 24px;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+		position: relative;
+	}
+
+	.tier-highlight {
+		border-color: #6b1986;
+	}
+
+	.tier-badge {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: #6b1986;
+		position: absolute;
+		top: 12px;
+		right: 12px;
+	}
+
+	.tier-name {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: #666;
+		margin-bottom: 8px;
+	}
+
+	.tier-price {
+		font-size: 32px;
+		font-weight: 700;
+		color: #1a1a1a;
+	}
+
+	.tier-period {
+		font-size: 16px;
+		font-weight: 400;
+		color: #666;
+	}
+
+	.membership-cta {
+		text-align: center;
+		margin: 48px 0;
+	}
+
+	.membership-note {
+		font-size: 15px;
+		color: #666;
+		margin: 20px auto 0;
+		max-width: 500px;
+		line-height: 1.6;
+	}
+
+	/* Coming Soon */
+	.coming-soon {
+		margin-top: 60px;
+		padding: 32px;
+		background: #ffffff;
+		border: 1px solid #e5e5e5;
+	}
+
+	.coming-soon-title {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: #6b1986;
+		margin: 0 0 16px 0;
+	}
+
+	.coming-soon-body {
+		font-size: 16px;
+		line-height: 1.6;
+		margin: 0 0 12px 0;
+		color: #666;
+	}
+
+	/* CTA Section */
+	.cta-section {
+		text-align: center;
+	}
+
+	.cta-section .section-title {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.cta-section .section-body {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Responsive - Tablet */
+	@media (min-width: 768px) {
+		.section {
+			padding: 100px 0;
+		}
+
+		.container {
+			padding: 0 48px;
+		}
+
+		.hero-content {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.policy-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.tiers {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	/* Responsive - Desktop */
+	@media (min-width: 1024px) {
+		.container {
+			padding: 0 64px;
+		}
+
+		.tiers {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	/* Mobile adjustments */
+	@media (max-width: 767px) {
+		.event-actions {
+			flex-direction: column;
+		}
+
+		.event-actions .btn {
+			width: 100%;
+		}
+	}
+</style>

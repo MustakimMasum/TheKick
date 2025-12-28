@@ -1,0 +1,134 @@
+---
+// Footer component
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-brand">
+				<span class="footer-logo-text">The Kick Enterprise Club</span>
+				<p class="footer-tagline">
+					A political home for business leaders aligned with Democratic outcomes.
+				</p>
+			</div>
+
+			<nav class="footer-nav">
+				<ul class="footer-links">
+					<li><a href="#what-we-build">What We Build</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#engagement">Engagement</a></li>
+					<li><a href="#policy">Policy</a></li>
+					<li><a href="#endorsements">Endorsements</a></li>
+					<li><a href="#events">Events</a></li>
+					<li><a href="#membership">Membership</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="footer-bottom">
+			<p class="footer-copyright">&copy; 2025 The Kick Enterprise Club. All rights reserved.</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: #1a1a1a;
+		color: #ffffff;
+		padding: 64px 0 32px;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 48px;
+		margin-bottom: 48px;
+	}
+
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.footer-logo-text {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 20px;
+		font-weight: 600;
+		color: #ffffff;
+	}
+
+	.footer-tagline {
+		font-size: 15px;
+		line-height: 1.6;
+		color: #999;
+		margin: 0;
+		max-width: 300px;
+	}
+
+	.footer-nav {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.footer-links {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px 32px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.footer-links a {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 14px;
+		color: #999;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.footer-links a:hover {
+		color: #ffffff;
+	}
+
+	.footer-bottom {
+		padding-top: 32px;
+		border-top: 1px solid #333;
+	}
+
+	.footer-copyright {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-size: 13px;
+		color: #666;
+		margin: 0;
+	}
+
+	/* Tablet and up */
+	@media (min-width: 768px) {
+		.container {
+			padding: 0 48px;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr auto;
+		}
+
+		.footer-links {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 12px 48px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.container {
+			padding: 0 64px;
+		}
+	}
+</style>

@@ -125,7 +125,7 @@ Prioritize clarity, hierarchy, and readability. Design must feel authoritative, 
 
 | Role | Color | Usage |
 |------|-------|-------|
-| **Primary Accent** | Red (`#E31B23` or similar) | CTAs, links, logo/wordmark, key emphasis |
+| **Primary Accent** | Purple (`#6B1986`) | CTAs, links, logo/wordmark, key emphasis |
 | **Base** | White (`#FFFFFF`) | Backgrounds, clean foundation |
 | **Text Primary** | Near-black (`#1A1A1A`) | Headlines, body text |
 | **Text Secondary** | Muted gray (`#666666`) | Supporting text, labels |
