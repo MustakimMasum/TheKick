@@ -2,36 +2,12 @@
 // Events Slider Component
 const events = [
 	{
-		date: 'January 15, 2026',
-		time: '12:00 PM - 2:00 PM',
-		location: 'The Galleria, Houston',
-		title: 'State of Harris County',
-		speaker: 'Commissioner Ellis',
-		description: 'A conversation about the priorities and challenges facing Harris County in the coming year.',
-	},
-	{
-		date: 'February 19, 2026',
-		time: '12:00 PM - 2:00 PM',
-		location: 'Downtown Houston',
-		title: 'Education & Workforce Development',
-		speaker: 'Trustee Davis',
-		description: 'Discussing the intersection of public education and economic opportunity in our region.',
-	},
-	{
-		date: 'March 12, 2026',
-		time: '12:00 PM - 2:00 PM',
-		location: 'Midtown Houston',
-		title: 'Healthcare Access Policy',
-		speaker: 'Dr. Martinez',
-		description: 'Exploring solutions for expanding healthcare access across underserved communities.',
-	},
-	{
-		date: 'April 16, 2026',
-		time: '12:00 PM - 2:00 PM',
-		location: 'River Oaks, Houston',
-		title: 'Economic Development Forum',
-		speaker: 'Director Johnson',
-		description: 'Business leaders and policy makers discuss strategies for sustainable growth.',
+		date: 'January 8, 2026',
+		time: 'TBD',
+		location: 'TBD',
+		title: 'The Kick Networking and Lunch Hour',
+		speaker: '',
+		description: 'Connect with aligned business leaders and civic contributors over lunch. A focused hour of networking and conversation for those serious about Democratic outcomes in Harris County.',
 	},
 ];
 ---
@@ -53,7 +29,7 @@ const events = [
 					</div>
 					<div class="event-content">
 						<h3 class="event-title">{event.title}</h3>
-						<p class="event-speaker">Featured Speaker: {event.speaker}</p>
+						{event.speaker && <p class="event-speaker">Featured Speaker: {event.speaker}</p>}
 						<p class="event-description">{event.description}</p>
 						<div class="event-meta">
 							<span class="event-meta-item">
