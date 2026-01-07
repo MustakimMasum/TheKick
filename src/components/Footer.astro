@@ -49,12 +49,14 @@
 		grid-template-columns: 1fr;
 		gap: 48px;
 		margin-bottom: 48px;
+		text-align: center;
 	}
 
 	.footer-brand {
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
+		align-items: center;
 	}
 
 	.footer-logo-text {
@@ -74,7 +76,7 @@
 
 	.footer-nav {
 		display: flex;
-		justify-content: flex-start;
+		justify-content: center;
 	}
 
 	.footer-links {
@@ -108,6 +110,7 @@
 		font-size: 13px;
 		color: #999;
 		margin: 0;
+		text-align: center;
 	}
 
 	/* Tablet and up */
@@ -118,11 +121,24 @@
 
 		.footer-content {
 			grid-template-columns: 1fr auto;
+			text-align: left;
+		}
+
+		.footer-brand {
+			align-items: flex-start;
+		}
+
+		.footer-nav {
+			justify-content: flex-start;
 		}
 
 		.footer-links {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 12px 48px;
+		}
+
+		.footer-copyright {
+			text-align: left;
 		}
 	}
 
