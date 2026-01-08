@@ -1,15 +1,13 @@
 ---
 // Footer component
+import theKickLogoTag from '@/assets/theKickLogotag.png';
 ---
 
 <footer class="footer">
 	<div class="container">
 		<div class="footer-content">
 			<div class="footer-brand">
-				<span class="footer-logo-text">The Kick Enterprise Club</span>
-				<p class="footer-tagline">
-					A political home for business leaders aligned with Democratic outcomes.
-				</p>
+				<img src={theKickLogoTag.src} alt="THE KICK Enterprise Club" class="footer-logo" />
 			</div>
 
 			<nav class="footer-nav">
@@ -25,7 +23,7 @@
 		</div>
 
 		<div class="footer-bottom">
-			<p class="footer-copyright">&copy; 2025 The Kick Enterprise Club. All rights reserved.</p>
+			<p class="footer-copyright">&copy; 2026 THE KICK Enterprise Club. All rights reserved.</p>
 		</div>
 	</div>
 </footer>
@@ -59,11 +57,10 @@
 		align-items: center;
 	}
 
-	.footer-logo-text {
-		font-family: 'Montserrat', sans-serif;
-		font-size: 20px;
-		font-weight: 600;
-		color: #1a1a1a;
+	.footer-logo {
+		width: 250px;
+		height: auto;
+		display: block;
 	}
 
 	.footer-tagline {
