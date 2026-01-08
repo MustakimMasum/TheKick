@@ -4,6 +4,10 @@ const events = [
 	{
 		date: 'January 8, 2026',
 		time: '11:30 AM - 1:00 PM',
+		timeSlots: [
+			{ label: 'Networking', time: '11:30 AM - 12:00 PM' },
+			{ label: 'Lunch', time: '12:00 PM - 1:00 PM' },
+		],
 		location: 'Hearsay on Levy Park 3728 Wakeforest St., Houston, TX 77098',
 		title: 'The Kick Networking and Lunch Hour',
 		speaker: '',
@@ -32,7 +36,7 @@ const events = [
 			{events.map((event) => (
 				<div class="event-card">
 					<div class="event-date">
-						<span class="event-month">{event.date.split(' ')[0]}</span>
+						<span class="event-month">{event.date.split(' ')[0].substring(0, 3)}</span>
 						<span class="event-day">{event.date.split(' ')[1].replace(',', '')}</span>
 					</div>
 					<div class="event-content">
@@ -45,7 +49,9 @@ const events = [
 									<circle cx="12" cy="12" r="10"/>
 									<polyline points="12 6 12 12 16 14"/>
 								</svg>
-								{event.time}
+								{event.timeSlots ? (
+									event.timeSlots.map(slot => `${slot.label}: ${slot.time}`).join(' | ')
+								) : event.time}
 							</span>
 							<span class="event-meta-item">
 								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -110,7 +116,7 @@ const events = [
 	}
 
 	.event-card:hover {
-		border-color: #2d4585;
+		border-color: #4a5cb8;
 		box-shadow: 0 4px 20px rgba(45, 69, 133, 0.15);
 	}
 
@@ -122,7 +128,7 @@ const events = [
 		justify-content: center;
 		width: 70px;
 		height: 70px;
-		background: #2d4585;
+		background: #4a5cb8;
 		color: #ffffff;
 		border-radius: 2px;
 	}
@@ -157,7 +163,7 @@ const events = [
 		font-family: 'Montserrat', sans-serif;
 		font-size: 13px;
 		font-weight: 500;
-		color: #2d4585;
+		color: #4a5cb8;
 		margin: 0 0 12px 0;
 	}
 
@@ -185,7 +191,7 @@ const events = [
 
 	.event-meta-item svg {
 		flex-shrink: 0;
-		color: #2d4585;
+		color: #4a5cb8;
 	}
 
 	.slider-arrow {
@@ -204,8 +210,8 @@ const events = [
 	}
 
 	.slider-arrow:hover {
-		background: #2d4585;
-		border-color: #2d4585;
+		background: #4a5cb8;
+		border-color: #4a5cb8;
 		color: #ffffff;
 	}
 
@@ -242,7 +248,7 @@ const events = [
 	}
 
 	.slider-dot.active {
-		background: #2d4585;
+		background: #4a5cb8;
 		width: 48px;
 	}
 
