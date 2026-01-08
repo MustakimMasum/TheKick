@@ -267,12 +267,12 @@ const events = [
 
 <script>
 	const track = document.getElementById('sliderTrack');
-	const prevBtn = document.getElementById('prevBtn');
-	const nextBtn = document.getElementById('nextBtn');
+	const prevBtn = document.getElementById('prevBtn') as HTMLButtonElement | null;
+	const nextBtn = document.getElementById('nextBtn') as HTMLButtonElement | null;
 	const dotsContainer = document.getElementById('sliderDots');
 
 	// Create dots
-	const cards = track.querySelectorAll('.event-card');
+	const cards = track?.querySelectorAll('.event-card') ?? [];
 	const totalSlides = cards.length;
 
 	for (let i = 0; i < totalSlides; i++) {
@@ -281,16 +281,19 @@ const events = [
 		dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
 		if (i === 0) dot.classList.add('active');
 		dot.addEventListener('click', () => scrollToSlide(i));
-		dotsContainer.appendChild(dot);
+		dotsContainer?.appendChild(dot);
 	}
 
-	const dots = dotsContainer.querySelectorAll('.slider-dot');
+	const dots = dotsContainer?.querySelectorAll('.slider-dot') ?? [];
 
-	function getCardWidth() {
-		return cards[0].offsetWidth + 20; // card + gap
+	function getCardWidth(): number {
+		if (cards.length === 0) return 0;
+		const firstCard = cards[0] as HTMLElement;
+		return firstCard.offsetWidth + 20; // card + gap
 	}
 
-	function scrollToSlide(index) {
+	function scrollToSlide(index: number): void {
+		if (!track) return;
 		const cardWidth = getCardWidth();
 		track.scrollTo({
 			left: cardWidth * index,
@@ -298,7 +301,8 @@ const events = [
 		});
 	}
 
-	function updateDots() {
+	function updateDots(): void {
+		if (!track || !prevBtn || !nextBtn) return;
 		const scrollLeft = track.scrollLeft;
 		const cardWidth = getCardWidth();
 		const trackCenter = scrollLeft + (track.clientWidth / 2);
@@ -308,7 +312,8 @@ const events = [
 		let closestDistance = Infinity;
 
 		cards.forEach((card, i) => {
-			const cardCenter = (i * cardWidth) + (card.offsetWidth / 2);
+			const htmlCard = card as HTMLElement;
+			const cardCenter = (i * cardWidth) + (htmlCard.offsetWidth / 2);
 			const distance = Math.abs(trackCenter - cardCenter);
 			if (distance < closestDistance) {
 				closestDistance = distance;
@@ -331,19 +336,20 @@ const events = [
 		nextBtn.disabled = isAtEnd;
 	}
 
-	// Throttled scroll handler for better performance
-	let scrollTimeout;
-	track.addEventListener('scroll', () => {
+	// Scroll handler
+	track?.addEventListener('scroll', () => {
 		updateDots();
 	}, { passive: true });
 
-	prevBtn.addEventListener('click', () => {
+	prevBtn?.addEventListener('click', () => {
+		if (!track) return;
 		const cardWidth = getCardWidth();
 		const newIndex = Math.max(0, Math.round(track.scrollLeft / cardWidth) - 1);
 		scrollToSlide(newIndex);
 	});
 
-	nextBtn.addEventListener('click', () => {
+	nextBtn?.addEventListener('click', () => {
+		if (!track) return;
 		const cardWidth = getCardWidth();
 		const newIndex = Math.min(totalSlides - 1, Math.round(track.scrollLeft / cardWidth) + 1);
 		scrollToSlide(newIndex);
@@ -353,10 +359,10 @@ const events = [
 	updateDots();
 
 	// Recalculate on resize
-	let resizeTimer;
+	let resizeTimer: number | undefined;
 	window.addEventListener('resize', () => {
 		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(() => {
+		resizeTimer = window.setTimeout(() => {
 			updateDots();
 		}, 100);
 	});
