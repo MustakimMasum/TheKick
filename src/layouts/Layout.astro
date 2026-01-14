@@ -22,7 +22,9 @@ const { title = 'The Kick Enterprise Club' } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<slot />
+		<div class="page-wrapper">
+			<slot />
+		</div>
 	</body>
 </html>
 
@@ -33,6 +35,7 @@ const { title = 'The Kick Enterprise Club' } = Astro.props;
 
 	html {
 		scroll-behavior: smooth;
+		height: 100%;
 	}
 
 	body {
@@ -43,5 +46,19 @@ const { title = 'The Kick Enterprise Club' } = Astro.props;
 		line-height: 1.7;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.page-wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		flex: 1;
+	}
+
+	.page-wrapper > main {
+		flex: 1;
 	}
 </style>

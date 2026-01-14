@@ -8,13 +8,6 @@ import Footer from '../components/Footer.astro';
 	<Header />
 
 	<main>
-		<section class="page-header">
-			<div class="container">
-				<h1 class="page-title">Resources & Links</h1>
-				<p class="page-subtitle">Helpful resources and external links from our community</p>
-			</div>
-		</section>
-
 		<section class="links-section">
 			<div class="container">
 				<p class="coming-soon">Check back soon for curated resources and links.</p>
@@ -26,36 +19,16 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-	.page-header {
-		padding: 60px 0;
-		border-bottom: 1px solid #e5e5e5;
-		background: #f8f9fc;
+	.links-section {
+		padding: 120px 0;
+		min-height: 400px;
 	}
 
-	.page-header .container {
+	.links-section .container {
 		max-width: 1080px;
 		margin: 0 auto;
 		padding-left: 24px;
 		padding-right: 24px;
-	}
-
-	.page-title {
-		font-family: 'Montserrat', sans-serif;
-		font-size: clamp(28px, 5vw, 42px);
-		font-weight: 700;
-		color: #1a1a1a;
-		margin: 0 0 12px 0;
-	}
-
-	.page-subtitle {
-		font-size: 17px;
-		color: #666;
-		margin: 0;
-	}
-
-	.links-section {
-		padding: 80px 0;
-		min-height: 400px;
 	}
 
 	.coming-soon {
@@ -66,14 +39,14 @@ import Footer from '../components/Footer.astro';
 	}
 
 	@media (min-width: 768px) {
-		.page-header .container {
+		.links-section .container {
 			padding-left: 48px;
 			padding-right: 48px;
 		}
 	}
 
 	@media (min-width: 1024px) {
-		.page-header .container {
+		.links-section .container {
 			padding-left: 64px;
 			padding-right: 64px;
 		}
