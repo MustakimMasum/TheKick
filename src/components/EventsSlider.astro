@@ -12,6 +12,7 @@ const events = [
 		title: 'The Kick Networking and Lunch Hour',
 		speaker: '',
 		description: 'Connect with aligned business leaders and civic contributors over lunch. A focused hour of networking and conversation for those serious about Democratic outcomes in Harris County.',
+		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=7&',
 	},
 	{
 		date: 'January 22, 2026',
@@ -19,7 +20,8 @@ const events = [
 		location: 'Hearsay on Levy Park 3728 Wakeforest St., Houston, TX 77098',
 		title: 'Business Leadership & Networking',
 		speaker: '',
-		description: ' Learn more about how the Democratic party actively promotes business, and how you can get involved.',
+		description: 'Learn more about how the Democratic party actively promotes business, and how you can get involved.',
+		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=9&',
 	},
 ];
 ---
@@ -61,6 +63,9 @@ const events = [
 								{event.location}
 							</span>
 						</div>
+						<a href={event.reserveLink} class="event-reserve-btn" target="_blank" rel="noopener noreferrer">
+							Reserve Your Spot
+						</a>
 					</div>
 				</div>
 			))}
@@ -192,6 +197,29 @@ const events = [
 	.event-meta-item svg {
 		flex-shrink: 0;
 		color: #4a5cb8;
+	}
+
+	.event-reserve-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 16px;
+		padding: 12px 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		font-weight: 500;
+		color: #ffffff;
+		background: #4a5cb8;
+		border: 2px solid #4a5cb8;
+		border-radius: 2px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.event-reserve-btn:hover {
+		background: #22386d;
+		border-color: #22386d;
 	}
 
 	.slider-arrow {
