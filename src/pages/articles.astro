@@ -8,18 +8,27 @@ import Footer from '../components/Footer.astro';
 	<Header />
 
 	<main>
-		<section class="page-header">
-			<div class="container">
-				<h1 class="page-title">Articles & White Papers</h1>
-				<p class="page-subtitle">Policy analysis, research, and perspectives from THE KICK Enterprise Club</p>
-			</div>
-		</section>
-
 		<section class="article-section">
 			<div class="container">
-				<article class="article">
+				<div class="articles-layout">
+					<aside class="articles-sidebar">
+						<nav class="articles-nav">
+							<h3 class="sidebar-title">Articles</h3>
+							<ul class="articles-list">
+								<li>
+									<a href="#termination-of-texas-hub-program" class="article-link active">
+										<span class="article-link-title">The Termination of the Texas HUB Program</span>
+										<span class="article-link-meta">January 2026</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</aside>
+
+					<div class="articles-content">
+						<article class="article" id="termination-of-texas-hub-program">
 					<div class="article-meta">
-						<span class="article-date">December 2025</span>
+						<span class="article-date">January 2026</span>
 						<span class="article-category">White Paper</span>
 					</div>
 					<h2 class="article-title">
@@ -196,9 +205,10 @@ import Footer from '../components/Footer.astro';
 						<p class="article-footer-text">
 							Prepared for policy leaders, business stakeholders, and civic organizations concerned with the future of economic opportunity and inclusive growth in the State of Texas.
 						</p>
-						<a href="/" class="btn btn-outline">Back to Home</a>
 					</div>
 				</article>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -207,47 +217,96 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-	.page-header {
-		padding: 60px 0;
-		border-bottom: 1px solid #e5e5e5;
-		background: #f8f9fc;
-	}
-
-	.page-header .container {
-		max-width: 1080px;
-		margin: 0 auto;
-		padding-left: 24px;
-		padding-right: 24px;
-	}
-
-	.page-title {
-		font-family: 'Montserrat', sans-serif;
-		font-size: clamp(28px, 5vw, 42px);
-		font-weight: 700;
-		color: #1a1a1a;
-		margin: 0 0 12px 0;
-	}
-
-	.page-subtitle {
-		font-size: 17px;
-		color: #666;
-		margin: 0;
-	}
-
 	.article-section {
 		padding: 60px 0;
 	}
 
 	.article-section .container {
-		max-width: 1080px;
+		max-width: 1200px;
 		margin: 0 auto;
 		padding-left: 24px;
 		padding-right: 24px;
 	}
 
-	.article {
-		max-width: 800px;
+	.articles-layout {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.articles-sidebar {
+		flex-shrink: 0;
+	}
+
+	.sidebar-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #666;
+		margin: 0 0 20px 0;
+	}
+
+	.articles-list {
+		list-style: none;
 		margin: 0;
+		padding: 0;
+	}
+
+	.article-link {
+		display: flex;
+		flex-direction: column;
+		padding: 16px 0;
+		text-decoration: none;
+		border-bottom: 1px solid #e5e5e5;
+		transition: all 0.2s ease;
+	}
+
+	.article-link:first-child {
+		padding-top: 0;
+	}
+
+	.article-link:hover {
+		padding-left: 8px;
+	}
+
+	.article-link.active {
+		padding-left: 8px;
+		border-left: 3px solid #4a5cb8;
+	}
+
+	.article-link-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 15px;
+		font-weight: 500;
+		color: #1a1a1a;
+		margin-bottom: 4px;
+	}
+
+	.article-link.active .article-link-title {
+		color: #4a5cb8;
+		font-weight: 600;
+	}
+
+	.article-link:hover .article-link-title {
+		color: #4a5cb8;
+	}
+
+	.article-link-meta {
+		font-size: 13px;
+		color: #999;
+	}
+
+	.articles-content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.article {
+		max-width: 100%;
+		margin: 0;
+		scroll-margin-top: 100px;
 	}
 
 	.article-meta {
@@ -310,7 +369,7 @@ import Footer from '../components/Footer.astro';
 		font-family: 'Montserrat', sans-serif;
 		font-size: 17px;
 		font-weight: 600;
-		color: #4a5cb8;
+		color: #1a1a1a;
 		margin: 24px 0 12px 0;
 	}
 
@@ -375,15 +434,6 @@ import Footer from '../components/Footer.astro';
 	}
 
 	@media (min-width: 768px) {
-		.page-header {
-			padding: 80px 0;
-		}
-
-		.page-header .container {
-			padding-left: 48px;
-			padding-right: 48px;
-		}
-
 		.article-section .container {
 			padding-left: 48px;
 			padding-right: 48px;
@@ -392,17 +442,74 @@ import Footer from '../components/Footer.astro';
 		.article-section {
 			padding: 80px 0;
 		}
+
+		.articles-layout {
+			flex-direction: row;
+			gap: 60px;
+		}
+
+		.articles-sidebar {
+			width: 280px;
+			position: sticky;
+			top: 100px;
+			align-self: flex-start;
+		}
+
+		.articles-content {
+			flex: 1;
+			min-width: 0;
+		}
+
+		.article {
+			max-width: 100%;
+		}
 	}
 
 	@media (min-width: 1024px) {
-		.page-header .container {
-			padding-left: 64px;
-			padding-right: 64px;
-		}
-
 		.article-section .container {
 			padding-left: 64px;
 			padding-right: 64px;
 		}
 	}
 </style>
+
+<script>
+	function initArticleNav() {
+		const articleLinks = document.querySelectorAll('.article-link');
+
+		articleLinks.forEach(link => {
+			link.addEventListener('click', (e) => {
+				// Remove active class from all links
+				articleLinks.forEach(l => l.classList.remove('active'));
+				// Add active class to clicked link
+				link.classList.add('active');
+			});
+		});
+
+		// Update active state on scroll
+		const articles = document.querySelectorAll('.article');
+		const observerOptions = {
+			root: null,
+			rootMargin: '-20% 0px -60% 0px',
+			threshold: 0
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					articleLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('href') === `#${id}`) {
+							link.classList.add('active');
+						}
+					});
+				}
+			});
+		}, observerOptions);
+
+		articles.forEach(article => observer.observe(article));
+	}
+
+	initArticleNav();
+</script>
