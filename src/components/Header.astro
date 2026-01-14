@@ -17,8 +17,12 @@ const navLinks = [
 		<div class="header-inner">
 			<a href="/" class="logo">
 				<img src={theKickLogo.src} alt="The Kick" class="logo-icon" />
+				<div class="logo-text">
+					<span class="logo-line">THE KICK</span>
+					<span class="logo-line">Enterprise Club</span>
+				</div>
 			</a>
-
+			
 			<nav class="nav" role="navigation">
 				<ul class="nav-list">
 					{navLinks.map((link) => (
@@ -95,10 +99,17 @@ const navLinks = [
 	}
 
 	.logo-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+	}
+
+	.logo-line {
 		font-family: 'Montserrat', sans-serif;
-		font-size: 24px;
+		font-size: 20px;
 		font-weight: 600;
 		color: #1a1a1a;
+		letter-spacing: 0.02em;
 	}
 
 	.nav {
