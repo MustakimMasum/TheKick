@@ -3,6 +3,38 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import whitePaperPdf from '../assets/White Paper_Termination Of The Texas Hub Program.pdf';
+
+// Calculate estimated read time (assuming ~200 words per minute)
+const articleContent = `
+	In late 2025, the State of Texas, through emergency rulemaking by the Office of the Texas Comptroller of Public Accounts, effectively terminated the Historically Underutilized Business (HUB) program as it had existed for decades. The program was administratively restructured into a significantly narrower initiative, Veteran Heroes United in Business (VetHUB) which limits eligibility exclusively to service-disabled veteran-owned small businesses.
+	KEC contends that the termination of the HUB program undermines decades of bipartisan economic development policy, weakens competition in public procurement, harms small businesses and local economies, and negatively impacts the State of Texas, its citizens, and the broader business community.
+	For more than thirty years, the Texas HUB program served as a cornerstone of the state's procurement and economic development framework. Designed to increase participation by historically underutilized businesses including minority- and woman-owned firms. The program sought to address documented disparities in access to public contracting opportunities while strengthening local economies and expanding competition.
+	The abrupt termination of this program through emergency rulemaking represents one of the most consequential shifts in Texas procurement policy in recent history. This paper provides context, analysis, and policy considerations regarding this decision and its implications.
+	The Historically Underutilized Business (HUB) program was established by the Texas Legislature to promote equitable access to state contracting opportunities. Under the program, businesses that were at least 51 percent owned and controlled by qualifying individuals such as minorities, women, and service-disabled veterans could obtain HUB certification.
+	A critical and often misunderstood aspect of the Texas Historically Underutilized Business (HUB) Program is that it was not a quota program. The program did not require state agencies to award contracts based on race, gender, or any predetermined numerical set-aside. Instead, the HUB framework operated as a goal-oriented, race-conscious but procurement-neutral policy tool, consistent with longstanding public-sector contracting practices.
+	In October 2025, the Texas Comptroller suspended new and renewal HUB certifications pending a constitutional review. On December 2, 2025, the Comptroller adopted emergency rules that eliminated race-, ethnicity-, and gender-based HUB certification and revoked existing certifications for minority- and woman-owned businesses.
+	Although existing contracts were allowed to continue, the program's core purpose and structure were fundamentally dismantled.
+	The HUB program was created by statute, not administrative rule. As such, the use of emergency rulemaking to materially alter eligibility criteria raises serious legal and constitutional questions. Critics argue that such sweeping changes should occur through legislative action or judicial review—not unilateral administrative reinterpretation.
+	THE KICK Enterprise Club (KEC) exists to drive impactful engagement among business leaders, Democrats, and Independents in Harris County, promote pragmatic and common-sense policy solutions, and support candidates who reflect these values.
+	KEC strongly opposes the termination of the HUB program because it contradicts fundamental principles of fair competition, economic inclusion, and responsible governance.
+	Thousands of minority- and woman-owned businesses lost a critical pathway to visibility and opportunity in state procurement. Many of these firms employ local residents and reinvest in their communities.
+	Limiting the vendor pool reduces competition, which historically leads to higher costs, fewer innovative solutions, and less efficiency for taxpayers.
+	Small businesses disproportionately drive job creation and economic resilience. The termination of the HUB program weakens this engine, particularly in urban and minority-majority regions like Harris County.
+	Abrupt policy changes without legislative debate or stakeholder engagement undermine confidence in government and discourage long-term business planning.
+	KEC rejects the premise that inclusive procurement policies and constitutional compliance are mutually exclusive. Other states and jurisdictions have successfully implemented race-neutral, disparity-informed programs without dismantling inclusion entirely.
+	The termination of the HUB program risks shrinking the small business supplier base, concentrating state contracts among fewer, larger firms, and slowing innovation and responsiveness.
+	HUB-certified businesses historically employed a diverse workforce and operated in underserved communities. Their reduced access to state contracts threatens jobs, wage growth, and economic mobility.
+	Texas has long promoted itself as a pro-business state. Policies that limit participation and discourage entrepreneurship undermine this reputation and weaken the state's competitive advantage.
+	The business community thrives on predictability, transparency, and opportunity. The elimination of the HUB framework increases uncertainty for small and mid-sized firms, discourages minority and women entrepreneurs, and sends a negative signal to investors and corporate partners who value inclusive supply chains.
+	KEC urges policymakers to restore the HUB program through legislative action, develop constitutionally sound, inclusive procurement alternatives, conduct a transparent disparity and economic impact study, engage stakeholders from the business and civic communities, and ensure that veterans' support programs complement—not replace—broader inclusion efforts.
+	The termination of the Texas HUB program represents a significant step backward in economic inclusion, fair competition, and public trust. While supporting service-disabled veterans is a worthy and necessary goal, it should not come at the expense of dismantling long-standing policies that strengthened Texas's economy and business ecosystem.
+	THE KICK Enterprise Club calls on state leaders to reconsider this decision, engage in meaningful dialogue, and pursue balanced, constitutional, and inclusive solutions that benefit all Texans.
+	Economic opportunity should not be narrowed. It should be expanded. Broaden the Supplier Base.
+`;
+
+const wordCount = articleContent.trim().split(/\s+/).length;
+const readTimeMinutes = Math.max(1, Math.ceil(wordCount / 200));
+const readTimeText = `${readTimeMinutes} min read`;
 ---
 
 <Layout title="Articles - THE KICK Enterprise Club">
@@ -31,6 +63,7 @@ import whitePaperPdf from '../assets/White Paper_Termination Of The Texas Hub Pr
 					<div class="article-meta">
 						<span class="article-date">January 2026</span>
 						<span class="article-category">White Paper</span>
+						<span class="article-read-time">{readTimeText}</span>
 					</div>
 					<h2 class="article-title">
 						The Termination of the Texas Historically Underutilized Business (HUB) Program
@@ -324,13 +357,19 @@ import whitePaperPdf from '../assets/White Paper_Termination Of The Texas Hub Pr
 	}
 
 	.article-date,
-	.article-category {
+	.article-category,
+	.article-read-time {
 		font-family: 'Montserrat', sans-serif;
 		font-size: 13px;
 		font-weight: 600;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		color: #3105e9;
+	}
+
+	.article-read-time {
+		color: #999;
+		font-weight: 500;
 	}
 
 	.article-title {
