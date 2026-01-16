@@ -1,5 +1,7 @@
 ---
 // Events Slider Component
+import flyerImage from '../assets/Flyer_Jan22.webp';
+
 const events = [
 	{
 		date: 'January 8, 2026',
@@ -9,10 +11,11 @@ const events = [
 			{ label: 'Lunch', time: '12:00 PM - 1:00 PM' },
 		],
 		location: 'Hearsay on Levy Park 3728 Wakeforest St., Houston, TX 77098',
-		title: 'The Kick Networking and Lunch Hour',
+		title: 'THE KICK Networking and Lunch Hour',
 		speaker: '',
 		description: 'Connect with aligned business leaders and civic contributors over lunch. A focused hour of networking and conversation for those serious about Democratic outcomes in Harris County.',
 		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=7&',
+		flyer: undefined,
 	},
 	{
 		date: 'January 22, 2026',
@@ -22,6 +25,7 @@ const events = [
 		speaker: '',
 		description: 'Learn more about how the Democratic party actively promotes business, and how you can get involved.',
 		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=9&',
+		flyer: flyerImage,
 	},
 ];
 ---
@@ -35,7 +39,7 @@ const events = [
 		</button>
 
 		<div class="slider-track" id="sliderTrack">
-			{events.map((event) => (
+			{events.map((event, index) => (
 				<div class="event-card">
 					<div class="event-date">
 						<span class="event-month">{event.date.split(' ')[0].substring(0, 3)}</span>
@@ -63,9 +67,20 @@ const events = [
 								{event.location}
 							</span>
 						</div>
-						<a href={event.reserveLink} class="event-reserve-btn" target="_blank" rel="noopener noreferrer">
-							Reserve Your Spot
-						</a>
+						<div class="event-actions">
+							{event.flyer && (
+								<button
+									class="event-show-more-btn"
+									data-flyer={event.flyer.src}
+									aria-label="View event flyer"
+								>
+									Show More
+								</button>
+							)}
+							<a href={event.reserveLink} class="event-reserve-btn" target="_blank" rel="noopener noreferrer">
+								Reserve Your Spot
+							</a>
+						</div>
 					</div>
 				</div>
 			))}
@@ -79,6 +94,20 @@ const events = [
 	</div>
 
 	<div class="slider-dots" id="sliderDots"></div>
+</div>
+
+<!-- Flyer Modal -->
+<div class="flyer-modal" id="flyerModal" aria-hidden="true">
+	<div class="flyer-modal-backdrop" id="flyerModalBackdrop"></div>
+	<div class="flyer-modal-content">
+		<button class="flyer-modal-close" id="flyerModalClose" aria-label="Close modal">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<line x1="18" y1="6" x2="6" y2="18"/>
+				<line x1="6" y1="6" x2="18" y2="18"/>
+			</svg>
+		</button>
+		<img src="" alt="Event flyer" class="flyer-modal-image" id="flyerModalImage" />
+	</div>
 </div>
 
 <style>
@@ -203,7 +232,6 @@ const events = [
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: 16px;
 		padding: 12px 24px;
 		font-family: 'Montserrat', sans-serif;
 		font-size: 14px;
@@ -220,6 +248,102 @@ const events = [
 	.event-reserve-btn:hover {
 		background: #3105e9;
 		color: #ffffff;
+	}
+
+	.event-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-top: 16px;
+	}
+
+	.event-show-more-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		padding: 12px 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		font-weight: 700;
+		color: #3105e9;
+		background: transparent;
+		border: 2px solid #3105e9;
+		border-radius: 2px;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.event-show-more-btn:hover {
+		background: #3105e9;
+		color: #ffffff;
+	}
+
+	/* Flyer Modal */
+	.flyer-modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+	}
+
+	.flyer-modal[aria-hidden="false"] {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.flyer-modal-backdrop {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.85);
+	}
+
+	.flyer-modal-content {
+		position: relative;
+		max-width: 90vw;
+		max-height: 90vh;
+		z-index: 1;
+	}
+
+	.flyer-modal-close {
+		position: absolute;
+		top: -48px;
+		right: -48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background: #ffffff;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		color: #1a1a1a;
+		transition: all 0.2s ease;
+	}
+
+	.flyer-modal-close:hover {
+		background: #3105e9;
+		color: #ffffff;
+	}
+
+	.flyer-modal-image {
+		display: block;
+		max-width: 100%;
+		max-height: 85vh;
+		border-radius: 4px;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 	}
 
 	.slider-arrow {
@@ -399,5 +523,45 @@ const events = [
 		resizeTimer = window.setTimeout(() => {
 			updateDots();
 		}, 100);
+	});
+
+	// Flyer Modal functionality
+	const modal = document.getElementById('flyerModal');
+	const modalBackdrop = document.getElementById('flyerModalBackdrop');
+	const modalClose = document.getElementById('flyerModalClose');
+	const modalImage = document.getElementById('flyerModalImage') as HTMLImageElement | null;
+	const showMoreBtns = document.querySelectorAll('.event-show-more-btn');
+
+	function openModal(imageSrc: string): void {
+		if (!modal || !modalImage) return;
+		modalImage.src = imageSrc;
+		modal.setAttribute('aria-hidden', 'false');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeModal(): void {
+		if (!modal || !modalImage) return;
+		modal.setAttribute('aria-hidden', 'true');
+		modalImage.src = '';
+		document.body.style.overflow = '';
+	}
+
+	showMoreBtns.forEach(btn => {
+		btn.addEventListener('click', () => {
+			const flyerSrc = btn.getAttribute('data-flyer');
+			if (flyerSrc) {
+				openModal(flyerSrc);
+			}
+		});
+	});
+
+	modalClose?.addEventListener('click', closeModal);
+	modalBackdrop?.addEventListener('click', closeModal);
+
+	// Close on Escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			closeModal();
+		}
 	});
 </script>
