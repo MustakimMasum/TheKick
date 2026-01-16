@@ -2,9 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Brand Guidelines
+
+- **THE KICK** — The brand name must ALWAYS be written in all caps. Never use "The Kick", "the kick", or any other variation. This is a hard rule that applies across all content, copy, and code comments.
+
 ## Project Overview
 
-**The Kick Enterprise Club** — A political membership website for Harris County business leaders aligned with Democratic outcomes. The site targets a professional, politically-engaged audience with a design aesthetic inspired by NYT, The Atlantic, and CNN.
+**THE KICK Enterprise Club** — A political membership website for Harris County business leaders aligned with Democratic outcomes. The site targets a professional, politically-engaged audience with a design aesthetic inspired by NYT, The Atlantic, and CNN.
 
 **Deadline:** January 5th
 
@@ -77,7 +81,7 @@ Full multi-page architecture planned for future development:
 
 Detailed page content, copy, and wireframe notes are in `instruction.md`. Key sections include:
 
-- **Homepage**: Hero with "The Kick Enterprise Club" branding, "What We're Building", "Who It's For", membership levels, bottom CTA with QR code
+- **Homepage**: Hero with "THE KICK Enterprise Club" branding, "What We're Building", "Who It's For", membership levels, bottom CTA with QR code
 - **About**: Mission statement, beliefs, origin story
 - **Engagement**: Monthly Leadership Lunches as signature series, emphasis on principled alignment and "politically homeless" conservatives
 - **Events**: RSVP functionality, payment integration ($XX per guest)
@@ -89,12 +93,12 @@ The MVP is a **single-page landing page** at `/` that incorporates all major sec
 
 ### Landing Page Sections (in order)
 
-1. **Hero** — "The Kick Enterprise Club" headline, tagline, "Support The Kick" CTA button
+1. **Hero** — "THE KICK Enterprise Club" headline, tagline, "Support THE KICK" CTA button
 2. **What We're Building** — Mission statement, bullet points on electing candidates, shaping policy, building infrastructure, creating space for disaffected conservatives
 3. **Who It's For** — Target audience (founders, executives, investors, business leaders)
 4. **About/Why We Exist** — Political outcomes shaped by strategy, not theater; capital with alignment
 5. **What We Believe** — Bullet points on civic investment, infrastructure, showing up, moving in same direction, influence used to build
-6. **Our Origin** — How The Kick was created by civic/business leaders seeing a gap
+6. **Our Origin** — How THE KICK was created by civic/business leaders seeing a gap
 7. **Engagement** — Monthly Leadership Lunches signature series, principled alignment message
 8. **Policy Areas** — BSB, Healthcare, Education, Energy, Tech & Innovation (brief overview)
 9. **Endorsements** — Announcement that first cohort will be before 2026, "Join the List" CTA
@@ -171,13 +175,13 @@ font-family: 'Inter', system-ui, -apple-system, sans-serif;
 - **Position:** Sticky header
 - **Style:** Text-focused, minimal, sans-serif
 - **Links:** Anchor links to main sections with smooth scroll
-- **Layout:** "The Kick" wordmark left, section links right
+- **Layout:** "THE KICK" wordmark left, section links right
 
 ### Buttons & CTAs
 
 | Type | Style | Usage |
 |------|-------|-------|
-| **Primary** | Solid red bg, white text, rectangular | "Support The Kick", "Join Now", "RSVP" |
+| **Primary** | Solid red bg, white text, rectangular | "Support THE KICK", "Join Now", "RSVP" |
 | **Secondary** | White bg, red border, red text | "Learn More", "View Tiers" |
 | **Tertiary** | Underlined text link | In-content navigation |
 

@@ -1,24 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch",
-      "Bash(npm run dev:*)",
-      "Bash(copy:*)",
-      "mcp__ide__getDiagnostics",
-      "Bash(git remote get-url:*)",
-      "Bash(npm run build)",
-      "Bash(git pull:*)",
-      "Bash(git merge:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(git stash:*)",
-      "Bash(npm install:*)",
-      "Bash(gh run:*)",
-      "Bash(git revert:*)",
-      "Bash(cat:*)",
-      "Bash(npx:*)",
-      "Bash(python -c \"\nimport zipfile\nimport xml.etree.ElementTree as ET\nfrom pathlib import Path\n\ndocx_path = Path(''src/assets/White Paper_ Termination Of The Texas Hub Program.docx'')\nwith zipfile.ZipFile(docx_path) as z:\n    xml_content = z.read(''word/document.xml'')\n    tree = ET.fromstring(xml_content)\n    ns = {''w'': ''http://schemas.openxmlformats.org/wordprocessingml/2006/main''}\n    paragraphs = tree.findall(''.//w:p'', ns)\n    text = []\n    for p in paragraphs:\n        t_nodes = p.findall(''.//w:t'', ns)\n        para_text = ''''.join([n.text for n in t_nodes if n.text])\n        if para_text.strip():\n            text.append(para_text)\n    print(''\\n''.join(text))\n\")"
+      "Bash(npm run dev)"
     ],
     "deny": [],
     "ask": []
