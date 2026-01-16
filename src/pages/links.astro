@@ -10,17 +10,25 @@ import Footer from '../components/Footer.astro';
 	<main>
 		<section class="links-section">
 			<div class="container">
-				<h1 class="page-title">Links</h1>
-				<div class="links-list">
-					<div class="link-item">
-						<p class="link-description">
-							To easily find out who represents you at the state and federal level please click here and enter your home address (yes...it is that easy!)
-						</p>
-						<a href="https://wrm.capitol.texas.gov/home" class="link-button" target="_blank" rel="noopener noreferrer">
-							Find Your Representatives
-						</a>
-					</div>
-				</div>
+				<aside class="links-sidebar">
+					<nav class="links-nav">
+						<h3 class="sidebar-title">Links</h3>
+						<ul class="links-list">
+							<li>
+								<div class="link-item">
+									<span class="link-title">Find Your Representatives</span>
+									<span class="link-meta">Texas Legislature Online</span>
+								</div>
+								<p class="link-description">
+									To easily find out who represents you at the state and federal level please click here and enter your home address (yes...it is that easy!)
+								</p>
+								<a href="https://wrm.capitol.texas.gov/home" class="link-button" target="_blank" rel="noopener noreferrer">
+									Visit Site
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</aside>
 			</div>
 		</section>
 	</main>
@@ -30,48 +38,74 @@ import Footer from '../components/Footer.astro';
 
 <style>
 	.links-section {
-		padding: 80px 0;
-		min-height: 400px;
+		padding: 60px 0;
 	}
 
 	.links-section .container {
-		max-width: 800px;
+		max-width: 1200px;
 		margin: 0 auto;
 		padding-left: 24px;
 		padding-right: 24px;
 	}
 
-	.page-title {
+	.links-sidebar {
+		flex-shrink: 0;
+	}
+
+	.sidebar-title {
 		font-family: 'Montserrat', sans-serif;
-		font-size: clamp(28px, 5vw, 36px);
-		font-weight: 700;
-		color: #1a1a1a;
-		margin: 0 0 40px 0;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #666;
+		margin: 0 0 20px 0;
 	}
 
 	.links-list {
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.links-list li {
+		padding: 16px 0;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.links-list li:first-child {
+		padding-top: 0;
+	}
+
+	.links-list li:last-child {
+		border-bottom: none;
 	}
 
 	.link-item {
-		padding: 24px;
-		border: 1px solid #e5e5e5;
-		border-radius: 4px;
-		transition: border-color 0.2s ease;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 12px;
 	}
 
-	.link-item:hover {
-		border-color: #3105e9;
+	.link-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 15px;
+		font-weight: 500;
+		color: #1a1a1a;
+		margin-bottom: 4px;
+	}
+
+	.link-meta {
+		font-size: 13px;
+		color: #999;
 	}
 
 	.link-description {
 		font-family: 'Georgia', 'Times New Roman', Times, serif;
-		font-size: 16px;
-		line-height: 1.7;
-		color: #1a1a1a;
-		margin: 0 0 16px 0;
+		font-size: 15px;
+		line-height: 1.6;
+		color: #666;
+		margin: 0 0 12px 0;
 	}
 
 	.link-button {
@@ -79,13 +113,13 @@ import Footer from '../components/Footer.astro';
 		align-items: center;
 		justify-content: center;
 		font-family: 'Montserrat', sans-serif;
-		font-size: 14px;
+		font-size: 15px;
 		font-weight: 500;
 		text-decoration: none;
 		cursor: pointer;
 		transition: all 0.2s ease;
 		border-radius: 2px;
-		padding: 12px 24px;
+		padding: 14px 28px;
 		background: transparent;
 		color: #3105e9;
 		border: 2px solid #3105e9;
@@ -98,16 +132,12 @@ import Footer from '../components/Footer.astro';
 
 	@media (min-width: 768px) {
 		.links-section {
-			padding: 100px 0;
+			padding: 80px 0;
 		}
 
 		.links-section .container {
 			padding-left: 48px;
 			padding-right: 48px;
-		}
-
-		.link-item {
-			padding: 28px 32px;
 		}
 	}
 
