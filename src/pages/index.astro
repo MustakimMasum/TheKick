@@ -312,9 +312,12 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 					</div>
 				</div>
 				<div class="membership-cta">
-					<a href="https://thekickdemocraticenterpriceclub.app.neoncrm.com/forms/kick-donation-form" class="btn btn-outline btn-large" target="_blank" rel="noopener noreferrer">Join Now</a>
+					<div class="membership-cta-buttons">
+						<a href="https://thekickdemocraticenterpriceclub.app.neoncrm.com/forms/kick-donation-form" class="btn btn-outline btn-large" target="_blank" rel="noopener noreferrer">Join Now</a>
+						<a href="https://thekickdemocraticenterpriceclub.app.neoncrm.com/subscribe.jsp" class="btn btn-outline btn-large" target="_blank" rel="noopener noreferrer">Subscribe</a>
+					</div>
 					<p class="membership-note">
-						Advisor and Senior Advisor are our most common membership levels —
+						Operator and Innovator are our most common membership levels —
 						sustaining the infrastructure, access, and influence we're building together.
 					</p>
 				</div>
@@ -808,6 +811,14 @@ import EndorsementsBackground from '../components/EndorsementsBackground.astro';
 	.membership-cta {
 		text-align: center;
 		margin: 48px 0;
+	}
+
+	.membership-cta-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.membership-note {
