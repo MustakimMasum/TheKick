@@ -10,9 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **THE KICK Enterprise Club** — A political membership website for Harris County business leaders aligned with Democratic outcomes. The site targets a professional, politically-engaged audience with a design aesthetic inspired by NYT, The Atlantic, and CNN.
 
-**Deadline:** January 5th
-
-This is an Astro 5 project with Tailwind CSS v4.
+This is an Astro 5 project with custom CSS (no Tailwind).
 
 ## Commands
 
@@ -26,47 +24,44 @@ This is an Astro 5 project with Tailwind CSS v4.
 ## Stack
 
 - **Astro 5** - Static site generator
-- **Tailwind CSS v4** - Styling via Vite plugin (`@tailwindcss/vite`)
+- **Tailwind CSS v4** - Installed via Vite plugin (`@tailwindcss/vite`)
 - **TypeScript** - Strict mode enabled
+
+**Note:** While Tailwind is available, this project uses scoped `<style>` blocks in `.astro` files with custom CSS rather than Tailwind utility classes. This provides more control over the editorial design aesthetic.
 
 ## Architecture
 
 ```
 src/
-├── assets/      # Static assets (images, fonts)
-├── components/  # Astro components (`.astro` files)
-├── layouts/     # Page layout templates
+├── assets/      # Static assets (images, PDFs, fonts)
+├── components/  # Astro components (Header.astro, Footer.astro, etc.)
+├── layouts/     # Page layout templates (Layout.astro)
 ├── pages/       # File-based routing (`.astro` files become routes)
-└── styles/      # Global styles, imports Tailwind via `@import "tailwindcss"`
+└── styles/      # Global styles
 ```
 
 ### Key Files
 
-- `astro.config.mjs` - Astro configuration, includes Tailwind Vite plugin
+- `astro.config.mjs` - Astro configuration
 - `tsconfig.json` - Extends `astro/tsconfigs/strict`
-- `src/styles/global.css` - Entry point for Tailwind CSS v4
+- `src/styles/global.css` - Global styles and font imports
 
-### Tailwind CSS v4 Notes
+## Current Site Structure
 
-Tailwind v4 uses Vite plugin integration instead of PostCSS. The setup is in `astro.config.mjs` and global styles import via `@import "tailwindcss"`.
-
-### Component Pattern
-
-Astro components use `.astro` extension with a frontmatter fence (`---`) for server-side JavaScript/TypeScript, followed by HTML template. Components can import and use other components and layouts.
-
-## Future Site Structure (Post-MVP)
-
-Full multi-page architecture planned for future development:
+The site is live with the following pages:
 
 | Page | Route | Description |
 |------|-------|-------------|
-| About | `/about` | Why we exist, what we believe, our origin |
-| Engagement | `/engagement` | Monthly leadership lunches, networking, landing for disaffected conservatives |
-| Policy | `/policy` | BSB, Healthcare, Education, Energy, Tech & Innovation |
-| Endorsements | `/endorsements` | Endorsed candidates (first cohort before 2026) |
+| Homepage | `/` | Single-page landing with all sections (hero, mission, events, membership, etc.) |
+| Articles | `/articles` | White papers and policy analysis (e.g., Texas HUB Program) |
+| Links | `/links` | External resources (e.g., Find Your Representatives) |
+
+### Planned Pages (Future)
+
+| Page | Route | Description |
+|------|-------|-------------|
 | Events | `/events` | Upcoming events with RSVP & payment links |
-| Blog | `/blog` | Articles, videos, content (excluded from MVP) |
-| Membership | `/membership` | Benefits, tiers, payment links, member directory (coming Q1 2026) |
+| Membership | `/membership` | Benefits, tiers, payment links, member directory |
 
 ## Membership Tiers
 
@@ -76,39 +71,6 @@ Full multi-page architecture planned for future development:
 - **Senior Advisor** — $1,000/year (most common)
 - **Partner** — $2,500/year
 - **Executive Partner** — $5,000/year
-
-## Content Reference
-
-Detailed page content, copy, and wireframe notes are in `instruction.md`. Key sections include:
-
-- **Homepage**: Hero with "THE KICK Enterprise Club" branding, "What We're Building", "Who It's For", membership levels, bottom CTA with QR code
-- **About**: Mission statement, beliefs, origin story
-- **Engagement**: Monthly Leadership Lunches as signature series, emphasis on principled alignment and "politically homeless" conservatives
-- **Events**: RSVP functionality, payment integration ($XX per guest)
-- **Member Directory** & **Dealroom RFP Platform**: Coming Q1 2026
-
-## MVP Scope: Single-Page Landing
-
-The MVP is a **single-page landing page** at `/` that incorporates all major sections as scrollable sections. This reduces complexity while delivering complete information.
-
-### Landing Page Sections (in order)
-
-1. **Hero** — "THE KICK Enterprise Club" headline, tagline, "Support THE KICK" CTA button
-2. **What We're Building** — Mission statement, bullet points on electing candidates, shaping policy, building infrastructure, creating space for disaffected conservatives
-3. **Who It's For** — Target audience (founders, executives, investors, business leaders)
-4. **About/Why We Exist** — Political outcomes shaped by strategy, not theater; capital with alignment
-5. **What We Believe** — Bullet points on civic investment, infrastructure, showing up, moving in same direction, influence used to build
-6. **Our Origin** — How THE KICK was created by civic/business leaders seeing a gap
-7. **Engagement** — Monthly Leadership Lunches signature series, principled alignment message
-8. **Policy Areas** — BSB, Healthcare, Education, Energy, Tech & Innovation (brief overview)
-9. **Endorsements** — Announcement that first cohort will be before 2026, "Join the List" CTA
-10. **Upcoming Events** — Monthly Leadership Luncheon with RSVP & payment CTAs
-11. **Membership** — All 6 tiers with pricing, "Join Now" CTA
-12. **Bottom CTA** — "Let's Build Something That Lasts" with QR code placeholder
-
-### Navigation
-
-Fixed or sticky header with anchor links to each section. Smooth scroll behavior recommended.
 
 ## Design System & Style Guide
 
@@ -141,68 +103,64 @@ Prioritize clarity, hierarchy, and readability. Design must feel authoritative, 
 
 ### Typography
 
-**Font Stack (one serif + one sans-serif):**
+**Font Stack:**
 ```css
-/* Serif — headlines, body, mission content (mimics AGaramond Pro) */
+/* Serif — article body, long-form content */
 font-family: 'Georgia', 'Times New Roman', Times, serif;
 
-/* Sans-serif — navigation, buttons, tier labels, UI (mimics Graphik) */
-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+/* Sans-serif — navigation, buttons, UI elements, headings */
+font-family: 'Montserrat', sans-serif;
 ```
 
 **Hierarchy:**
 | Element | Size | Weight | Style |
 |---------|------|--------|-------|
-| H1 (Hero title) | 40-52px | Bold | Serif |
-| H2 (Section title) | 28-32px | Semibold | Serif, italic optional |
-| H3 (Subsection/Tier) | 20-24px | Semibold | Serif or Sans |
-| Body | 17-19px | Regular | Serif, line-height 1.6-1.8 |
-| Labels, Meta | 13-14px | Medium | Sans-serif, uppercase |
-
-**Key techniques:**
-- Use *italics* and larger size for emphasis — avoid heavy bold
-- Headlines dominate visually
-- Typography over decoration
+| H1 (Page title) | 24-32px | 700 | Sans-serif |
+| H2 (Section title) | 28-32px | 700 | Sans-serif |
+| H3 (Article heading) | 20-22px | 600 | Sans-serif |
+| Body (article) | 17px | Regular | Serif, line-height 1.8 |
+| Body (general) | 15-17px | Regular | Sans-serif or Serif |
+| Labels, Meta | 13px | 500-600 | Sans-serif, optional uppercase |
 
 ### Layout & Grid
 
-- **Grid:** 12-column responsive
-- **Gutters:** Desktop 48-64px, Mobile 24-32px
-- **Content Width:** Max ~1200px for main container; ~650px for focused text sections
-- **Responsive:** Desktop (3-4 col) → Tablet (2 col) → Mobile (1 col)
-- **Margins:** Generous white space between sections
+- **Container:** Max 1200px for main content
+- **Gutters:** Desktop 48-64px, Mobile 24px
+- **Content Width:** Full width for most pages; ~650px for focused text sections
+- **Margins:** Generous white space between sections (60-80px vertical padding)
 
 ### Navigation
 
 - **Position:** Sticky header
-- **Style:** Text-focused, minimal, sans-serif
+- **Style:** Text-focused, minimal, sans-serif (Montserrat)
 - **Links:** Anchor links to main sections with smooth scroll
-- **Layout:** "THE KICK" wordmark left, section links right
+- **Layout:** "THE KICK" wordmark left, section links right, "Join Now" button
 
 ### Buttons & CTAs
 
-| Type | Style | Usage |
-|------|-------|-------|
-| **Primary** | Solid red bg, white text, rectangular | "Support THE KICK", "Join Now", "RSVP" |
-| **Secondary** | White bg, red border, red text | "Learn More", "View Tiers" |
-| **Tertiary** | Underlined text link | In-content navigation |
+**Hollow/Outline Style (Primary):**
+- Transparent background
+- Purple border (`#3105e9`)
+- Purple text
+- On hover: Purple background with white text
+- Border radius: 2px (no pills)
+- Padding: 14px 28px
 
-- Shape: Rectangular, max 2-4px border radius (no pills)
-- Padding: 14-18px vertical, 28-36px horizontal
-- Typography-forward, not heavily styled
+**Usage:** "Join Now", "Subscribe", "Download", "Visit Site"
 
 ### Component Patterns
 
-**Section containers:**
-- Generous vertical padding (80-120px between sections)
-- Optional light divider line between sections
-- No colored backgrounds — white space is the separator
+**Articles page:**
+- Two-column layout on desktop (sidebar nav + content)
+- Sidebar: 280px width, sticky positioning
+- Article list items with bottom border dividers
+- Article content: Georgia serif, 17px, line-height 1.8
 
-**Membership tiers display:**
-- List or card layout
-- Price prominent (serif, larger)
-- Tier name in sans-serif, uppercase, accent color
-- "Most common" badge on Advisor/Senior Advisor
+**Links page:**
+- Single-column layout with sidebar-style header
+- "Links" heading: Uppercase, small (14px), gray
+- List items with title, meta info, description, and CTA button
+- Bottom border dividers between items
 
 **Event/promotion blocks:**
 - Two-column layout: text left, image/graphic right (desktop)
@@ -212,10 +170,10 @@ font-family: 'Inter', system-ui, -apple-system, sans-serif;
 ### Interaction & UX
 
 **Allowed:**
-- Link underline or color change on hover
-- Subtle elevation on hover
+- Link color change on hover
+- Subtle padding shifts on list items (8px)
 - Smooth scroll for anchor navigation
-- Purposeful, restrained animations
+- Purposeful, restrained transitions (0.2s ease)
 
 **Avoid:**
 - Bounce or elastic effects
@@ -223,13 +181,7 @@ font-family: 'Inter', system-ui, -apple-system, sans-serif;
 - Scroll-jacking
 - Heavy shadows
 - Playful or decorative fonts
-
-### Imagery
-
-- Style: Professional, documentary, architectural, or civic
-- No stock-photo smiles or generic business imagery
-- Rectangular, clean aspect ratios
-- Support text, not overpower it
+- Gradient backgrounds
 
 ### Hard Constraints (Do NOT)
 
@@ -247,8 +199,9 @@ font-family: 'Inter', system-ui, -apple-system, sans-serif;
 ### Code Output Guidelines
 
 - **HTML/CSS:** Semantic, clean
-- **Tailwind:** Restrained utilities, prefer theme values over arbitrary
+- **Scoped Styles:** Use `<style>` blocks in `.astro` files
 - **Components:** Minimal, content-first
+- **CSS Approach:** Write custom CSS in scoped styles; Tailwind utilities are available but not typically used
 
 Always optimize for:
 ✔ Readability
