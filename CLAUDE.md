@@ -129,13 +129,15 @@ Prioritize clarity, hierarchy, and readability. Design must feel authoritative, 
 
 | Role | Color | Usage |
 |------|-------|-------|
-| **Primary Accent** | Purple (`#6B1986`) | CTAs, links, logo/wordmark, key emphasis |
+| **Primary Accent** | Purple (`#3105e9`) | CTAs, links, logo/wordmark, key emphasis |
 | **Base** | White (`#FFFFFF`) | Backgrounds, clean foundation |
 | **Text Primary** | Near-black (`#1A1A1A`) | Headlines, body text |
 | **Text Secondary** | Muted gray (`#666666`) | Supporting text, labels |
 | **Section Dividers** | Light gray (`#E5E5E5`) | Horizontal rules, borders |
 
 **Accent color usage:** Sparingly — CTAs, section headers, links, hover states. Never use gradients or neon colors.
+
+**IMPORTANT:** Always use `#3105e9` for the primary accent color. Do NOT use `#6B1986` or any other purple shade.
 
 ### Typography
 
