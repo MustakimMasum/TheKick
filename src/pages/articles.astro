@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import whitePaperPdf from '../assets/White Paper_Termination Of The Texas Hub Program.pdf';
 ---
 
 <Layout title="Articles - THE KICK Enterprise Club">
@@ -37,6 +38,12 @@ import Footer from '../components/Footer.astro';
 					<p class="article-subtitle">
 						Policy Implications, Economic Impact, and THE KICK Enterprise Club's Opposition
 					</p>
+
+					<div class="article-actions">
+						<a href={whitePaperPdf} download class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+							Download as PDF
+						</a>
+					</div>
 
 					<div class="article-content">
 						<h3>Executive Summary</h3>
@@ -340,6 +347,10 @@ import Footer from '../components/Footer.astro';
 		color: #666;
 		margin: 0 0 40px 0;
 		line-height: 1.6;
+	}
+
+	.article-actions {
+		margin-bottom: 32px;
 	}
 
 	.article-content {
