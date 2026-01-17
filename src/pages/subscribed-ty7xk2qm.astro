@@ -11,48 +11,56 @@ import Footer from '../components/Footer.astro';
 		<!-- Hero / Confirmation Section -->
 		<section class="hero-section">
 			<div class="container">
-				<div class="success-icon">
-					<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<circle cx="36" cy="36" r="35" stroke="#3105e9" stroke-width="2"/>
-						<path d="M22 36L32 46L50 28" stroke="#3105e9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
-				<h1 class="page-title">You're In.</h1>
-				<p class="page-subtitle">
-					Thank you for subscribing to THE KICK Enterprise Club. You'll receive updates on our
-					events, policy work, and opportunities to engage.
-				</p>
-			</div>
-		</section>
+				<div class="hero-layout">
+					<div class="hero-left">
+						<div class="success-icon">
+							<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="36" cy="36" r="35" stroke="#3105e9" stroke-width="2"/>
+								<path d="M22 36L32 46L50 28" stroke="#3105e9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<h1 class="page-title">You're In.</h1>
+						<p class="page-subtitle">
+							Thank you for subscribing to THE KICK Enterprise Club. You'll receive updates on our
+							events, policy work, and opportunities to engage.
+						</p>
+					</div>
 
-		<!-- What's Next -->
-		<section class="section">
-			<div class="container">
-				<h2 class="section-title">What's Next</h2>
-				<div class="steps-grid">
-					<div class="step">
-						<div class="step-number">1</div>
-						<h3 class="step-title">Check Your Inbox</h3>
-						<p class="step-body">
-							Look for a confirmation email shortly. If you don't see it within a few minutes,
-							check your promotions or spam folder.
-						</p>
-					</div>
-					<div class="step">
-						<div class="step-number">2</div>
-						<h3 class="step-title">Stay Informed</h3>
-						<p class="step-body">
-							You'll receive updates on upcoming events, candidate endorsements, and
-							opportunities to engage with THE KICK community.
-						</p>
-					</div>
-					<div class="step">
-						<div class="step-number">3</div>
-						<h3 class="step-title">Join the Conversation</h3>
-						<p class="step-body">
-							Attend our Monthly Leadership Luncheon and connect with other business leaders
-							aligned with Democratic outcomes.
-						</p>
+					<!-- What's Next Steps -->
+					<div class="hero-right">
+						<h2 class="steps-heading">What's Next</h2>
+						<div class="steps-inline">
+							<div class="step-inline">
+								<div class="step-header">
+									<div class="step-number">1</div>
+									<h3 class="step-title">Check Your Inbox</h3>
+								</div>
+								<p class="step-body">
+									Look for a confirmation email shortly. If you don't see it within a few minutes,
+									check your promotions or spam folder.
+								</p>
+							</div>
+							<div class="step-inline">
+								<div class="step-header">
+									<div class="step-number">2</div>
+									<h3 class="step-title">Stay Informed</h3>
+								</div>
+								<p class="step-body">
+									You'll receive updates on upcoming events, candidate endorsements, and
+									opportunities to engage with THE KICK community.
+								</p>
+							</div>
+							<div class="step-inline">
+								<div class="step-header">
+									<div class="step-number">3</div>
+									<h3 class="step-title">Join the Conversation</h3>
+								</div>
+								<p class="step-body">
+									Attend our Monthly Leadership Luncheon and connect with other business leaders
+									aligned with Democratic outcomes.
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -166,16 +174,29 @@ import Footer from '../components/Footer.astro';
 	/* Hero Section */
 	.hero-section {
 		background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
-		padding: 100px 0 80px;
-		text-align: center;
+		padding: 60px 0 48px;
 		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.hero-layout {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.hero-left {
+		text-align: center;
+	}
+
+	.hero-right {
+		width: 100%;
 	}
 
 	.success-icon {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 32px;
+		margin-bottom: 24px;
 		animation: scaleIn 0.5s ease-out;
 	}
 
@@ -192,17 +213,17 @@ import Footer from '../components/Footer.astro';
 
 	.page-title {
 		font-family: 'Montserrat', sans-serif;
-		font-size: 42px;
+		font-size: 36px;
 		font-weight: 700;
 		color: #1a1a1a;
-		margin: 0 0 24px;
+		margin: 0 0 16px;
 		letter-spacing: -0.02em;
 	}
 
 	.page-subtitle {
 		font-family: 'Montserrat', sans-serif;
-		font-size: 18px;
-		line-height: 1.7;
+		font-size: 17px;
+		line-height: 1.6;
 		color: #666;
 		max-width: 580px;
 		margin: 0 auto;
@@ -228,32 +249,47 @@ import Footer from '../components/Footer.astro';
 		margin: 0 auto 40px;
 	}
 
-	/* What's Next Steps */
-	.steps-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 32px;
+	/* What's Next Steps (Inline) */
+	.steps-heading {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 20px;
+		font-weight: 600;
+		color: #1a1a1a;
+		margin: 0 0 16px;
 	}
 
-	.step {
+	.steps-inline {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.step-inline {
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
-		padding: 32px;
-		background: #f8f9fc;
+		gap: 10px;
+		text-align: left;
+		padding: 16px;
+		background: rgba(255, 255, 255, 0.6);
 		border-radius: 4px;
 	}
 
+	.step-header {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
 	.step-number {
-		width: 48px;
-		height: 48px;
+		width: 32px;
+		height: 32px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		background: #3105e9;
 		color: #ffffff;
 		font-family: 'Montserrat', sans-serif;
-		font-size: 20px;
+		font-size: 16px;
 		font-weight: 700;
 		border-radius: 50%;
 		flex-shrink: 0;
@@ -261,7 +297,7 @@ import Footer from '../components/Footer.astro';
 
 	.step-title {
 		font-family: 'Montserrat', sans-serif;
-		font-size: 20px;
+		font-size: 16px;
 		font-weight: 600;
 		color: #1a1a1a;
 		margin: 0;
@@ -269,8 +305,8 @@ import Footer from '../components/Footer.astro';
 
 	.step-body {
 		font-family: 'Montserrat', sans-serif;
-		font-size: 16px;
-		line-height: 1.7;
+		font-size: 14px;
+		line-height: 1.5;
 		color: #666;
 		margin: 0;
 	}
@@ -467,30 +503,56 @@ import Footer from '../components/Footer.astro';
 	@media (min-width: 768px) {
 		.container {
 			padding: 0 48px;
+			max-width: 1200px;
 		}
 
 		.section {
 			padding: 80px 0;
 		}
 
+		.hero-layout {
+			flex-direction: row;
+			align-items: center;
+			gap: 64px;
+		}
+
+		.hero-left {
+			flex: 0 0 320px;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.hero-right {
+			flex: 1;
+		}
+
+		.success-icon {
+			justify-content: center;
+		}
+
 		.page-title {
-			font-size: 52px;
+			font-size: 44px;
 		}
 
 		.page-subtitle {
-			font-size: 19px;
+			font-size: 17px;
 		}
 
 		.section-title {
 			font-size: 32px;
 		}
 
-		.steps-grid {
-			grid-template-columns: repeat(3, 1fr);
+		.steps-inline {
+			grid-template-columns: 1fr;
+			gap: 12px;
 		}
 
-		.step {
-			padding: 32px 24px;
+		.step-inline {
+			flex-direction: column;
+			padding: 14px;
 		}
 
 		.cta-buttons {
