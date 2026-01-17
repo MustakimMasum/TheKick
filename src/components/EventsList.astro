@@ -1,0 +1,214 @@
+---
+// Shared Events Data - import this to access events array
+import flyerImage from '../assets/Flyer_Jan22.webp';
+
+export const events = [
+	{
+		date: 'January 8, 2026',
+		time: '11:30 AM - 1:00 PM',
+		timeSlots: [
+			{ label: 'Networking', time: '11:30 AM - 12:00 PM' },
+			{ label: 'Lunch', time: '12:00 PM - 1:00 PM' },
+		],
+		location: 'Hearsay on Levy Park 3728 Wakeforest St., Houston, TX 77098',
+		title: 'THE KICK Networking and Lunch Hour',
+		speaker: '',
+		description: 'Connect with aligned business leaders and civic contributors over lunch. A focused hour of networking and conversation for those serious about Democratic outcomes in Harris County.',
+		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=7&',
+		flyer: undefined,
+	},
+	{
+		date: 'January 22, 2026',
+		time: '6:00 PM - 9:00 PM',
+		location: 'Hearsay on Levy Park 3728 Wakeforest St., Houston, TX 77098',
+		title: 'Business Leadership & Networking',
+		speaker: '',
+		description: 'Learn more about how the Democratic party actively promotes business, and how you can get involved.',
+		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=9&',
+		flyer: flyerImage,
+	},
+];
+
+// Helper to check if an event is in the past
+const isPastEvent = (dateStr: string): boolean => {
+	const eventDate = new Date(dateStr);
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+	return eventDate < today;
+};
+
+// Props to control whether to show past events
+const { showPast = false } = Astro.props;
+
+// Filter events based on showPast prop
+const displayEvents = showPast ? events : events.filter(e => !isPastEvent(e.date));
+
+// Add isPast property to each event for rendering
+const eventsWithStatus = displayEvents.map(event => ({
+	...event,
+	isPast: isPastEvent(event.date)
+}));
+---
+
+{eventsWithStatus.map((event) => (
+	<div class={`event-card ${event.isPast ? 'event-card--past' : ''}`}>
+		<div class="event-date">
+			<span class="event-month">{event.date.split(' ')[0].substring(0, 3)}</span>
+			<span class="event-day">{event.date.split(' ')[1].replace(',', '')}</span>
+		</div>
+		<div class="event-details">
+			<h3 class="event-title">{event.title}</h3>
+			<p class="event-description">{event.description}</p>
+		</div>
+		{event.isPast ? (
+			<span class="event-badge">Past Event</span>
+		) : (
+			<a href={event.reserveLink} class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+				Reserve Your Spot
+			</a>
+		)}
+	</div>
+))}
+
+<style>
+	.event-card {
+		display: flex;
+		gap: 24px;
+		padding: 28px;
+		background: #f8f9fc;
+		border-radius: 4px;
+		align-items: center;
+		text-align: left;
+	}
+
+	.event-card--past {
+		opacity: 0.6;
+	}
+
+	.event-card--past .event-date {
+		background: #999;
+	}
+
+	.event-card--past .event-title {
+		color: #999;
+	}
+
+	.event-date {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		background: #3105e9;
+		color: #ffffff;
+		border-radius: 4px;
+		flex-shrink: 0;
+	}
+
+	.event-month {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.event-day {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 28px;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	.event-details {
+		flex: 1;
+	}
+
+	.event-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 20px;
+		font-weight: 600;
+		color: #1a1a1a;
+		margin: 0 0 8px;
+	}
+
+	.event-description {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 15px;
+		line-height: 1.6;
+		color: #666;
+		margin: 0;
+	}
+
+	.event-badge {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		color: #999;
+		padding: 12px 24px;
+		border: 2px solid #999;
+		border-radius: 2px;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	/* Multiple events support */
+	.event-card + .event-card {
+		margin-top: 16px;
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		text-decoration: none;
+		padding: 12px 24px;
+		border-radius: 2px;
+		transition: all 0.2s ease;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.btn-outline {
+		background: transparent;
+		color: #3105e9;
+		border: 2px solid #3105e9;
+	}
+
+	.btn-outline:hover {
+		background: #3105e9;
+		color: #ffffff;
+	}
+
+	/* Mobile */
+	@media (max-width: 767px) {
+		.event-card {
+			flex-direction: column;
+			text-align: center;
+			gap: 16px;
+			padding: 24px;
+		}
+
+		.event-date {
+			width: 70px;
+			height: 70px;
+		}
+
+		.event-day {
+			font-size: 24px;
+		}
+
+		.event-title {
+			font-size: 18px;
+		}
+
+		.btn, .event-badge {
+			width: 100%;
+		}
+	}
+</style>
