@@ -1,33 +1,20 @@
 ---
 // Events Slider Component
-import flyerImage from '../assets/Flyer_Jan22.webp';
+import { events } from './EventsList.astro';
 
-const events = [
-	{
-		date: 'January 8, 2026',
-		time: '11:30 AM - 1:00 PM',
-		timeSlots: [
-			{ label: 'Networking', time: '11:30 AM - 12:00 PM' },
-			{ label: 'Lunch', time: '12:00 PM - 1:00 PM' },
-		],
-		location: 'Hearsay on Levy Park 3728 Wakeforest St., Houston, TX 77098',
-		title: 'THE KICK Networking and Lunch Hour',
-		speaker: '',
-		description: 'Connect with aligned business leaders and civic contributors over lunch. A focused hour of networking and conversation for those serious about Democratic outcomes in Harris County.',
-		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=7&',
-		flyer: undefined,
-	},
-	{
-		date: 'January 22, 2026',
-		time: '6:00 PM - 9:00 PM',
-		location: 'Hearsay on Levy Park 3728 Wakeforest St., Houston, TX 77098',
-		title: 'Business Leadership & Networking',
-		speaker: '',
-		description: 'Learn more about how the Democratic party actively promotes business, and how you can get involved.',
-		reserveLink: 'https://thekickdemocraticenterpriceclub.app.neoncrm.com/np/clients/thekickdemocraticenterpriceclub/eventRegistration.jsp?event=9&',
-		flyer: flyerImage,
-	},
-];
+// Helper to check if an event is in the past
+const isPastEvent = (dateStr: string): boolean => {
+	const eventDate = new Date(dateStr);
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+	return eventDate < today;
+};
+
+// Add isPast property to each event for rendering
+const eventsWithStatus = events.map(event => ({
+	...event,
+	isPast: isPastEvent(event.date)
+}));
 ---
 
 <div class="events-slider" id="eventsSlider">
@@ -39,8 +26,8 @@ const events = [
 		</button>
 
 		<div class="slider-track" id="sliderTrack">
-			{events.map((event, index) => (
-				<div class="event-card">
+			{eventsWithStatus.map((event) => (
+				<div class={`event-card ${event.isPast ? 'event-card--past' : ''}`}>
 					<div class="event-date">
 						<span class="event-month">{event.date.split(' ')[0].substring(0, 3)}</span>
 						<span class="event-day">{event.date.split(' ')[1].replace(',', '')}</span>
@@ -77,9 +64,13 @@ const events = [
 									Show More
 								</button>
 							)}
-							<a href={event.reserveLink} class="event-reserve-btn" target="_blank" rel="noopener noreferrer">
-								Reserve Your Spot
-							</a>
+							{event.isPast ? (
+								<span class="event-past-badge">Past Event</span>
+							) : (
+								<a href={event.reserveLink} class="event-reserve-btn" target="_blank" rel="noopener noreferrer">
+									Reserve Your Spot
+								</a>
+							)}
 						</div>
 					</div>
 				</div>
@@ -152,6 +143,24 @@ const events = [
 	.event-card:hover {
 		border-color: #3105e9;
 		box-shadow: 0 4px 20px rgba(49, 5, 233, 0.15);
+	}
+
+	/* Past event styling */
+	.event-card--past {
+		opacity: 0.6;
+	}
+
+	.event-card--past:hover {
+		border-color: #e5e5e5;
+		box-shadow: none;
+	}
+
+	.event-card--past .event-date {
+		background: #999;
+	}
+
+	.event-card--past .event-title {
+		color: #999;
 	}
 
 	.event-date {
@@ -248,6 +257,20 @@ const events = [
 	.event-reserve-btn:hover {
 		background: #3105e9;
 		color: #ffffff;
+	}
+
+	.event-past-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 12px 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		font-weight: 700;
+		color: #999;
+		background: transparent;
+		border: 2px solid #999;
+		border-radius: 2px;
 	}
 
 	.event-actions {
