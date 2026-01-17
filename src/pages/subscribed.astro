@@ -1,0 +1,517 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Thank You for Subscribing | THE KICK Enterprise Club">
+	<Header />
+
+	<main class="thank-you-page">
+		<!-- Hero / Confirmation Section -->
+		<section class="hero-section">
+			<div class="container">
+				<div class="success-icon">
+					<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="36" cy="36" r="35" stroke="#3105e9" stroke-width="2"/>
+						<path d="M22 36L32 46L50 28" stroke="#3105e9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
+				<h1 class="page-title">You're In.</h1>
+				<p class="page-subtitle">
+					Thank you for subscribing to THE KICK Enterprise Club. You'll receive updates on our
+					events, policy work, and opportunities to engage.
+				</p>
+			</div>
+		</section>
+
+		<!-- What's Next -->
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title">What's Next</h2>
+				<div class="steps-grid">
+					<div class="step">
+						<div class="step-number">1</div>
+						<h3 class="step-title">Check Your Inbox</h3>
+						<p class="step-body">
+							Look for a confirmation email shortly. If you don't see it within a few minutes,
+							check your promotions or spam folder.
+						</p>
+					</div>
+					<div class="step">
+						<div class="step-number">2</div>
+						<h3 class="step-title">Stay Informed</h3>
+						<p class="step-body">
+							You'll receive updates on upcoming events, candidate endorsements, and
+							opportunities to engage with THE KICK community.
+						</p>
+					</div>
+					<div class="step">
+						<div class="step-number">3</div>
+						<h3 class="step-title">Join the Conversation</h3>
+						<p class="step-body">
+							Attend our Monthly Leadership Luncheon and connect with other business leaders
+							aligned with Democratic outcomes.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Membership CTA -->
+		<section class="section membership-cta">
+			<div class="container">
+				<div class="cta-card">
+					<div class="cta-content">
+						<h2 class="cta-title">Ready to Do More?</h2>
+						<p class="cta-body">
+							Subscribing is a great first step. Membership is where real change happens.
+							Join a community of business leaders committed to building lasting political
+							infrastructure in Harris County.
+						</p>
+						<div class="cta-benefits">
+							<div class="benefit">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="#3105e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								<span>Voting rights on candidate endorsements</span>
+							</div>
+							<div class="benefit">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="#3105e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								<span>Exclusive access to Member Directory</span>
+							</div>
+							<div class="benefit">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="#3105e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								<span>Invitations to private events and briefings</span>
+							</div>
+						</div>
+						<div class="cta-buttons">
+							<a href="https://thekickdemocraticenterpriceclub.app.neoncrm.com/forms/kick-donation-form" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+								Become a Member
+							</a>
+							<a href="/" class="btn btn-outline">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Upcoming Events Teaser -->
+		<section class="section events-teaser">
+			<div class="container">
+				<h2 class="section-title">Upcoming Events</h2>
+				<p class="section-intro">
+					Join us for our Monthly Leadership Luncheon — designed for business leaders,
+					civic contributors, and anyone ready to connect around shared priorities for
+					Harris County.
+				</p>
+				<div class="event-card">
+					<div class="event-date">
+						<span class="event-month">Monthly</span>
+						<span class="event-day">Luncheon</span>
+					</div>
+					<div class="event-details">
+						<h3 class="event-title">Leadership Luncheon</h3>
+						<p class="event-description">
+							Connect with fellow business leaders and hear from key speakers on policy,
+							politics, and civic engagement in Harris County.
+						</p>
+					</div>
+					<a href="/" class="btn btn-outline">Learn More</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Donation CTA -->
+		<section class="section donation-section">
+			<div class="container">
+				<div class="donation-card">
+					<h2 class="donation-title">Support Our Work</h2>
+					<p class="donation-body">
+						Not ready to join? You can still support our mission with a one-time contribution.
+						Every dollar helps us build the infrastructure for aligned political engagement.
+					</p>
+					<a href="https://thekickdemocraticenterpriceclub.app.neoncrm.com/forms/kick-donation-form" class="btn btn-outline btn-large" target="_blank" rel="noopener noreferrer">
+						Make a Donation
+					</a>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	/* Base Layout */
+	.thank-you-page {
+		background: #ffffff;
+	}
+
+	.container {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	.section {
+		padding: 64px 0;
+	}
+
+	/* Hero Section */
+	.hero-section {
+		background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
+		padding: 100px 0 80px;
+		text-align: center;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.success-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 32px;
+		animation: scaleIn 0.5s ease-out;
+	}
+
+	@keyframes scaleIn {
+		from {
+			transform: scale(0.8);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+	.page-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 42px;
+		font-weight: 700;
+		color: #1a1a1a;
+		margin: 0 0 24px;
+		letter-spacing: -0.02em;
+	}
+
+	.page-subtitle {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 18px;
+		line-height: 1.7;
+		color: #666;
+		max-width: 580px;
+		margin: 0 auto;
+	}
+
+	/* Section Titles */
+	.section-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 28px;
+		font-weight: 700;
+		color: #1a1a1a;
+		margin: 0 0 48px;
+		text-align: center;
+	}
+
+	.section-intro {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 17px;
+		line-height: 1.7;
+		color: #666;
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto 40px;
+	}
+
+	/* What's Next Steps */
+	.steps-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.step {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding: 32px;
+		background: #f8f9fc;
+		border-radius: 4px;
+	}
+
+	.step-number {
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #3105e9;
+		color: #ffffff;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+
+	.step-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 20px;
+		font-weight: 600;
+		color: #1a1a1a;
+		margin: 0;
+	}
+
+	.step-body {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		line-height: 1.7;
+		color: #666;
+		margin: 0;
+	}
+
+	/* Membership CTA Card */
+	.membership-cta {
+		background: #f8f9fc;
+	}
+
+	.cta-card {
+		background: #ffffff;
+		border-radius: 8px;
+		padding: 48px 32px;
+		box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+	}
+
+	.cta-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 28px;
+		font-weight: 700;
+		color: #1a1a1a;
+		margin: 0 0 20px;
+	}
+
+	.cta-body {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 17px;
+		line-height: 1.7;
+		color: #666;
+		margin: 0 0 32px;
+	}
+
+	.cta-benefits {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-bottom: 32px;
+	}
+
+	.benefit {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.benefit span {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		color: #1a1a1a;
+	}
+
+	.benefit svg {
+		flex-shrink: 0;
+	}
+
+	.cta-buttons {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		align-items: flex-start;
+	}
+
+	/* Event Card */
+	.event-card {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		padding: 32px;
+		background: #f8f9fc;
+		border-radius: 4px;
+		align-items: center;
+		text-align: center;
+	}
+
+	.event-date {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		height: 100px;
+		background: #3105e9;
+		color: #ffffff;
+		border-radius: 4px;
+	}
+
+	.event-month {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.event-day {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.event-details {
+		flex: 1;
+	}
+
+	.event-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 22px;
+		font-weight: 600;
+		color: #1a1a1a;
+		margin: 0 0 12px;
+	}
+
+	.event-description {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		line-height: 1.7;
+		color: #666;
+		margin: 0;
+	}
+
+	/* Donation Section */
+	.donation-section {
+		background: #f8f9fc;
+	}
+
+	.donation-card {
+		background: #ffffff;
+		border-radius: 8px;
+		padding: 48px 32px;
+		text-align: center;
+		box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+	}
+
+	.donation-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 28px;
+		font-weight: 700;
+		color: #1a1a1a;
+		margin: 0 0 20px;
+	}
+
+	.donation-body {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 17px;
+		line-height: 1.7;
+		color: #666;
+		max-width: 540px;
+		margin: 0 auto 32px;
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 15px;
+		font-weight: 600;
+		text-decoration: none;
+		padding: 14px 28px;
+		border-radius: 2px;
+		transition: all 0.2s ease;
+		cursor: pointer;
+	}
+
+	.btn-primary {
+		background: #3105e9;
+		color: #ffffff;
+		border: 2px solid #3105e9;
+	}
+
+	.btn-primary:hover {
+		background: #2a04c7;
+		border-color: #2a04c7;
+	}
+
+	.btn-outline {
+		background: transparent;
+		color: #3105e9;
+		border: 2px solid #3105e9;
+	}
+
+	.btn-outline:hover {
+		background: #3105e9;
+		color: #ffffff;
+	}
+
+	.btn-large {
+		padding: 16px 36px;
+		font-size: 16px;
+	}
+
+	/* Tablet and up */
+	@media (min-width: 768px) {
+		.container {
+			padding: 0 48px;
+		}
+
+		.section {
+			padding: 80px 0;
+		}
+
+		.page-title {
+			font-size: 52px;
+		}
+
+		.page-subtitle {
+			font-size: 19px;
+		}
+
+		.section-title {
+			font-size: 32px;
+		}
+
+		.steps-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.step {
+			padding: 32px 24px;
+		}
+
+		.cta-buttons {
+			flex-direction: row;
+		}
+
+		.event-card {
+			flex-direction: row;
+			text-align: left;
+			padding: 40px;
+		}
+
+		.event-date {
+			width: 110px;
+			height: 110px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.container {
+			padding: 0 64px;
+		}
+	}
+</style>
